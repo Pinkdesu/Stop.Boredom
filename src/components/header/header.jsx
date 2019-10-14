@@ -1,6 +1,7 @@
 import React, { Component }  from 'react';
 import './header-style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarker, faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons'
 import Fade from 'react-reveal/Fade';
 
 class Header extends Component {
@@ -54,8 +55,11 @@ class Header extends Component {
                 </nav>
 
                 <Fade top appear={false} when={isDeployed} duration={500}>
-                    <div className="geo" style={{visibility: visibility}}>
-                        <FontAwesomeIcon icon="faCoffe"/>
+                    <div className="geo-bar" style={{visibility: visibility}}>
+                        <div className="city-select">
+                            <FontAwesomeIcon icon={faMapMarker} className="location-icon"/>
+                            <span className="city-name">Тюмень</span>
+                        </div>
                     </div>
                 </Fade>
             </header>
