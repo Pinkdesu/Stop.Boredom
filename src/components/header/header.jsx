@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 import './header-style.css';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Fade from 'react-reveal/Fade';
 
 class Header extends Component {
@@ -36,7 +36,7 @@ class Header extends Component {
         return(
             <header className={isDeployed ? "header-wrapper deployed" : "header-wrapper collapsed"}>
                 <nav className="navbar">
-                    <ul className="menu-main left-menu" style={{marginLeft: 15 + '%'}}>
+                    <ul className="menu-main left-menu">
                         <li className="left-item"><a href="">Лента</a></li>
                         <li className="left-item"><a href="">Генератор</a></li>
                         <li className="left-item"><a href="">Сотрудничество</a></li>
@@ -55,7 +55,7 @@ class Header extends Component {
 
                 <Fade top appear={false} when={isDeployed} duration={500}>
                     <div className="geo" style={{visibility: visibility}}>
-
+                        <FontAwesomeIcon icon="faCoffe"/>
                     </div>
                 </Fade>
             </header>
