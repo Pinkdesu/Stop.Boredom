@@ -1,7 +1,8 @@
 import React, { Component }  from 'react';
 import './header-style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarker, faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons'
+import { faMapMarker, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
+import { NavLink, Link } from 'react-router-dom';
 import Fade from 'react-reveal/Fade';
 
 class Header extends Component {
@@ -11,6 +12,7 @@ class Header extends Component {
         this.state = {
             visibility: 'visible',
             isDeployed: true,
+            isHover: false
         }
       }
     
@@ -27,37 +29,41 @@ class Header extends Component {
             })
         }
     }
+
+    listenHoverIcon = () => {
+        this.setState(( { isHover }) => ({
+            isHover: !isHover
+        }));
+    }
     
     componentDidMount() {
         window.addEventListener('scroll', this.listenScrollEvent)
     }
 
     render() {
-        const { visibility, isDeployed } = this.state;
+        const { visibility, isDeployed, isHover } = this.state;
         return(
             <header className={isDeployed ? "header-wrapper deployed" : "header-wrapper collapsed"}>
                 <nav className="navbar">
-                    <ul className="menu-main left-menu">
-                        <li className="left-item"><a href="">Лента</a></li>
-                        <li className="left-item"><a href="">Генератор</a></li>
-                        <li className="left-item"><a href="">Сотрудничество</a></li>
-                    </ul>   
-
-                    <a className="logo-link" href="#">
+                    <Link to='/' className="logo-link">
                         <img className="logo-img" src="/images/logo-min.jpg"/>
-                    </a>
+                    </Link>
 
-                    <ul className="menu-main right-menu">
-                        <li className="left-item"><a href="">Work</a></li>
-                        <li className="left-item"><a href="">About</a></li>
-                        <li className="left-item"><a href="">Story</a></li>
-                    </ul>
+                    <ul className="menu-main">
+                        <li className="left-item"><NavLink exact to='/'>Генератор</NavLink></li>
+                        <li className="left-item"><NavLink to='/feed'>Лента</NavLink></li>
+                        <li className="left-item"><NavLink to='/collaboration'>Сотрудничество</NavLink></li>
+                        <li className="left-item"> <a href="">Войти</a></li>
+                    </ul>   
                 </nav>
 
                 <Fade top appear={false} when={isDeployed} duration={500}>
                     <div className="geo-bar" style={{visibility: visibility}}>
-                        <div className="city-select">
-                            <FontAwesomeIcon icon={faMapMarker} className="location-icon"/>
+                        <div className="city-select" 
+                            onMouseOver={this.listenHoverIcon}
+                            onMouseOut={this.listenHoverIcon}>
+
+                            <FontAwesomeIcon icon={isHover ? faMapMarkerAlt : faMapMarker} className="location-icon"/>
                             <span className="city-name">Тюмень</span>
                         </div>
                     </div>

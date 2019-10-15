@@ -1,13 +1,13 @@
 import React, {Component}  from 'react';
-import './style.css';
+import './error-page-style.css';
 
-class Main extends Component {
+class ErrorPage extends Component {
     render() {
         return(
             <main className="main-wrapper">
-                <h1>Основная страница</h1>
+                <h1>Error</h1>
             </main>
         );
     }
 }
-export default Main;
+export default ErrorPage;

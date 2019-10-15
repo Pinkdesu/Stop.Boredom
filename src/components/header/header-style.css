@@ -27,17 +27,11 @@
 .menu-main {
     display: flex;
     flex-flow: row nowrap;
+    justify-content: flex-end;
+    margin: 0 15% 0 100px;
     list-style: none;
     width: 30%;
     min-width: 500px;
-}
-.left-menu{
-    justify-content: flex-start;
-    margin-left: 15%;
-}
-.right-menu{
-    justify-content: flex-end;
-    margin-right: 15%;
 }
 .menu-main:after {
     content: "";
@@ -59,6 +53,9 @@
 .menu-main a:hover{
     background: rgba(0,0,0,.3);
 }
+.menu-main .active{
+    background: rgba(0,0,0,.3);
+}
 .logo-link{
     border: solid 5px #ff4435;
     margin: 10px 0;
@@ -66,6 +63,7 @@
     width: 100px; 
     height: 40px;
     text-align: center;
+    margin-left: 15%;
 }
 .logo-img{
     width: 100px;
@@ -83,13 +81,11 @@
     background: rgba(31, 31, 31, 0.75);
 }
 .city-select{
-    display: flex;
-    margin-left: 15%;
-    padding: 0 20px;
     align-items: center;
     color: #fff;
     font-family: Arial,Helvetica,sans-serif;
     height: 20px;
+    margin-left: 15%;
 }
 .location-icon{
     margin-right: 5px;
