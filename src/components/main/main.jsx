@@ -5,7 +5,9 @@ class Main extends Component {
     render() {
         return(
             <main className="main-wrapper">
-                <h1>Основная страница</h1>
+                <div className="main-content">
+                    
+                </div>
             </main>
         );
     }

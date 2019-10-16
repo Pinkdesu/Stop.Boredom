@@ -1,4 +1,4 @@
-import React, { Component }  from 'react';
+import React, { Component, Fragment }  from 'react';
 import './header-style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarker, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
@@ -43,22 +43,24 @@ class Header extends Component {
     render() {
         const { visibility, isDeployed, isHover } = this.state;
         return(
-            <header className={isDeployed ? "header-wrapper deployed" : "header-wrapper collapsed"}>
-                <nav className="navbar">
-                    <Link to='/' className="logo-link">
-                        <img className="logo-img" src="/images/logo-min.jpg"/>
-                    </Link>
+            <Fragment>
+                <header className="header-wrapper">
+                    <nav className="navbar">
+                        <Link to='/' className="logo-link">
+                            <img className="logo-img" src="/images/logo-min.jpg"/>
+                        </Link>
 
-                    <ul className="menu-main">
-                        <li className="left-item"><NavLink exact to='/'>Генератор</NavLink></li>
-                        <li className="left-item"><NavLink to='/feed'>Лента</NavLink></li>
-                        <li className="left-item"><NavLink to='/collaboration'>Сотрудничество</NavLink></li>
-                        <li className="left-item"> <a href="">Войти</a></li>
-                    </ul>   
-                </nav>
-
-                <Fade top appear={false} when={isDeployed} duration={500}>
-                    <div className="geo-bar" style={{visibility: visibility}}>
+                        <ul className="menu-main">
+                            <li className="left-item"><NavLink exact to='/'>Генератор</NavLink></li>
+                            <li className="left-item"><NavLink to='/feed'>Лента</NavLink></li>
+                            <li className="left-item"><NavLink to='/collaboration'>Сотрудничество</NavLink></li>
+                            <li className="left-item"> <a href="">Войти</a></li>
+                        </ul>   
+                    </nav>
+                </header>
+        
+                <Fade top appear={false} when={isDeployed} duration={200}>
+                    <div className="geo-bar"  style={{visibility: visibility}}>
                         <div className="city-select" 
                             onMouseOver={this.listenHoverIcon}
                             onMouseOut={this.listenHoverIcon}>
@@ -68,7 +70,7 @@ class Header extends Component {
                         </div>
                     </div>
                 </Fade>
-            </header>
+            </Fragment>
         );
     }
 }
