@@ -1,6 +1,34 @@
 .filter-item-bar{
-
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: stretch;
+    width: calc(100% - 2px);
+    border-bottom: 1px solid black;
+    transition: 0.5s heigth linear;
+    height: auto;
 }
 .filter-item-head{
-    
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    padding: 10px 0;
+}
+.collapsed-fi{
+    visibility: hidden;
+    transition: 0.3s linear;
+    height: 0;
+}
+.deployed-fi{
+    visibility: visible;
+    transition: 0.3s linear;
+    height: 50px;
+}
+.filter-item-text{
+
+}
+.filter-item-icon{
+    margin: 0 20px 0 10px;
 }
