@@ -9,17 +9,7 @@ import CollaborationPage from './components/collaboration-page/collaboration-pag
 import NewsFeed from './components/news-feed/news-feed';
 import ErrorPage from './components/error-page/error-page';
 
-ReactDOM.render((
-    <BrowserRouter>
-        <App>
-            <Switch>
-                <Route exact path='/' component={Main}/>
-                <Route path='/collaboration' component={CollaborationPage}/>
-                <Route path='/feed' component={NewsFeed}/>
-                <Route path='*' component={ErrorPage}/>
-            </Switch>
-        </App>
-    </BrowserRouter>),  document.getElementById('root'));
+ReactDOM.render(<App />,  document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

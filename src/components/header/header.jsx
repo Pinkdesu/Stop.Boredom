@@ -17,7 +17,7 @@ class Header extends Component {
       }
     
     listenScrollEvent = e => {
-        if (window.scrollY > 80) {
+        if (window.scrollY > 40) {
             this.setState({
                 visibility: 'hidden',
                 isDeployed: false
