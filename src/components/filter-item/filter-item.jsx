@@ -7,12 +7,13 @@ export default () => {
     const [isCollapsed, handleClick] = useState(true);
     console.log(isCollapsed);
     return(
-        <div className={isCollapsed ? "filter-item-bar" : "filter-item-bar"} onClick={() => handleClick(!isCollapsed)}>
-            <div className="filter-item-head">
+        <div className="filter-item-bar" onClick={() => handleClick(!isCollapsed)}>
+            <button className="filter-item-button">
                 <FontAwesomeIcon icon={isCollapsed ? faAngleDown : faAngleUp } className="filter-item-icon"/>
                 <span className="filter-item-text">Фильтр 1</span>
-            </div>
-            <div className={isCollapsed ? "collapsed-fi" : "deployed-fi"}></div>
+            </button>
+            <ul className={isCollapsed ? "collapsed-fi" : "deployed-fi"}>
+            </ul>
         </div>
     );
 }
