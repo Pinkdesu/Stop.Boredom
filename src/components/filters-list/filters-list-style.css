@@ -1,3 +1,10 @@
+.filters-list-wrap{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
 .list-collapsed{
     visibility: hidden;
     transition: 0.3s linear;
@@ -6,5 +13,19 @@
 .list-deployed{
     visibility: visible;
     transition: 0.3s linear;
-    height: 50px;
+    height: 200px;
+}
+.ul-list {
+  background: white;
+  position: relative;
+  z-index: 1;
+  list-style-type: circle;
+  list-style-position: inside;
+  padding: 0 10px;
+  margin: 0;
+}
+.ul-list li {
+  font-family: "Trebuchet MS", "Lucida Sans";
+  border-bottom: 1px solid #efefef;
+  padding: 10px 0;
 }
