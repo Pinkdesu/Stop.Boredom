@@ -27,16 +27,6 @@
     border: none;
     outline: none;
 }
-.collapsed-fi{
-    visibility: hidden;
-    transition: 0.3s linear;
-    height: 0;
-}
-.deployed-fi{
-    visibility: visible;
-    transition: 0.3s linear;
-    height: 50px;
-}
 .filter-item-text{
 
 }

@@ -1,0 +1,10 @@
+.list-collapsed{
+    visibility: hidden;
+    transition: 0.3s linear;
+    height: 0;
+}
+.list-deployed{
+    visibility: visible;
+    transition: 0.3s linear;
+    height: 50px;
+}
