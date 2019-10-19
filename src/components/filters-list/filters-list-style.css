@@ -3,7 +3,7 @@
     flex-flow: column nowrap;
     width: 100%;
     position: relative;
-    z-index: 1;
+    z-index: 4;
 }
 .list-collapsed{
     visibility: hidden;
@@ -16,16 +16,12 @@
     height: 200px;
 }
 .ul-list {
-  background: white;
-  position: relative;
-  z-index: 1;
-  list-style-type: circle;
-  list-style-position: inside;
-  padding: 0 10px;
-  margin: 0;
-}
-.ul-list li {
-  font-family: "Trebuchet MS", "Lucida Sans";
-  border-bottom: 1px solid #efefef;
-  padding: 10px 0;
+    position: relative;
+    z-index: 1;
+    list-style-type: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }

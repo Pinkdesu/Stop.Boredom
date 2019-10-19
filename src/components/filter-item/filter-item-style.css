@@ -13,7 +13,9 @@
     height: auto;
     border-radius: 0;
     border-bottom: 1px solid #ddd;
-    background: #fff;
+    background-color: #eee;
+    position: relative;
+    z-index: 2;
 }
 .filter-item-button{
     display: flex;
@@ -24,11 +26,11 @@
     height: 50px;
     padding: 10px 0;
     color: #666;
-    background-color: rgba(0,0,0,0);
     border: none;
     outline: none;
     position: relative;
     z-index: 5;
+    background-color: #fff;
 }
 .filter-item-text{
 
