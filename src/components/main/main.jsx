@@ -3,8 +3,15 @@ import './main-style.css';
 import FilterItem from '../filter-item/filter-item';
 
 class Main extends Component {
-    render() {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            isDeployed: false
+        }  
+    }
+
+    render() {
         const test = [
             {
                 sectionID: '1',
@@ -32,9 +39,14 @@ class Main extends Component {
             },
         ];
 
+        const { isDeployed } = this.state;
+
         return(
             <main className="main-wrapper">
-
+                <div className={isDeployed ? "quick-filters quick-fi-deployed" : "quick-filters quick-fi-collapsed"}>
+                        
+                </div>
+                
                 <div className="filter-bar">
                     {test.map(({ sectionID, sectionText }) => (
                         <FilterItem

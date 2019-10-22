@@ -13,15 +13,19 @@
     background-color: #fff;
 }
 .fi-hidden-checkbox{
-    height: 100%;
+    position: absolute;
+    left: 0;
+    height: inherit;
     width: 100%;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     opacity: 0;
+    margin-bottom: 5px;
 }
 .fi-label-wrap{
     font-family: "futura-pt","sans-serif";
+    width: 100%;
     font-size: 14px;
     text-align: left;
     font-weight: 400;

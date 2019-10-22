@@ -31,6 +31,10 @@ export default ({ sectionID, isCollapsed }) => {
             id: '5',
             text: 'Filter 5'
         },
+        {
+            id: '6',
+            text: 'Filter 6'
+        },
     ];
 
     return(
