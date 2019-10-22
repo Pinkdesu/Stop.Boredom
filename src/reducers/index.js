@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-
-const rootReducer = combineReducers({ });
+import activeFilters from './active-filters';
+const rootReducer = combineReducers({ activeFilters });
 
 export default rootReducer;

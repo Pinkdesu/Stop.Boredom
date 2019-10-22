@@ -1,4 +1,5 @@
 import React, {Component}  from 'react';
+import { connect } from 'react-redux';
 import './main-style.css';
 import FilterItem from '../filter-item/filter-item';
 
@@ -40,6 +41,7 @@ class Main extends Component {
         ];
 
         const { isDeployed } = this.state;
+        const { activeFilters } = this.props;
 
         return(
             <main className="main-wrapper">
@@ -57,7 +59,10 @@ class Main extends Component {
                         ))}
                         
                         <div className="selected-filters-bar">
-                
+                            {activeFilters.map(({ text }) => (
+                            <p key={text}>
+                                {text}
+                            </p>))}   
                         </div>
                     </div>
 
@@ -69,4 +74,7 @@ class Main extends Component {
         );
     }
 }
-export default Main;
+const mapStateToProps = state => ({
+    activeFilters: state.activeFilters
+});
+export default connect(mapStateToProps)(Main);

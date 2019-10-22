@@ -14,12 +14,10 @@ const configureStore = preloadedState => (
     rootReducer,
     preloadedState,
     composeEnhancers(
-      applyMiddleware(save({ namespace: 'gg'}))
+      applyMiddleware(save({ namespace: 'active-filters'}))
     ),
   )
 );
 
 const store = configureStore({});
-
-console.log(store.getState())
 export default store;
