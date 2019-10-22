@@ -4,9 +4,9 @@ import './style.css';
 class Footer extends Component {
     render() {
         return(
-            <div className="footer-wrapper">
+            <footer className="footer-wrapper">
                 
-            </div>
+            </footer>
         );
     }
 }

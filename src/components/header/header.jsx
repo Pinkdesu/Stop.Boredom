@@ -61,7 +61,7 @@ class Header extends Component {
         
                 <Fade top appear={false} when={isDeployed} duration={200}>
                     <div className="geo-bar"  style={{visibility: visibility}}>
-                        <div className="city-select" 
+                        <div className="city-select cursor-pointer" 
                             onMouseOver={this.listenHoverIcon}
                             onMouseOut={this.listenHoverIcon}>
 

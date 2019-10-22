@@ -47,21 +47,23 @@ class Main extends Component {
                         
                 </div>
                 
-                <div className="filter-bar">
-                    {test.map(({ sectionID, sectionText }) => (
-                        <FilterItem
-                                key={sectionID} 
-                                sectionID={sectionID}
-                                sectionText={sectionText} />
-                    ))}
-                    
-                    <div className="selected-filters-bar">
-            
+                <div className="main-bar-wrapper">
+                    <div className="filter-bar">
+                        {test.map(({ sectionID, sectionText }) => (
+                            <FilterItem
+                                    key={sectionID} 
+                                    sectionID={sectionID}
+                                    sectionText={sectionText} />
+                        ))}
+                        
+                        <div className="selected-filters-bar">
+                
+                        </div>
                     </div>
-                </div>
 
-                <div className="main-content">
+                    <div className="main-content">
 
+                    </div>
                 </div>
             </main>
         );

@@ -8,7 +8,7 @@ export default ({sectionID, sectionText}) => {
     const [isCollapsed, handleClick] = useState(true);
     return(
         <div className="filter-item-bar">
-            <button className="filter-item-button" onClick={() => handleClick(!isCollapsed)}>
+            <button className="filter-item-button cursor-pointer" onClick={() => handleClick(!isCollapsed)}>
                 <FontAwesomeIcon icon={isCollapsed ? faAngleDown : faAngleUp } className="filter-item-icon"/>
                 <span className="filter-item-text">{sectionText}</span>
             </button>

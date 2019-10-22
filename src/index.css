@@ -10,9 +10,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
+  background: rgba(31, 31, 31, 0.2);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+.cursor-pointer{
+  cursor: default;
+}
+.cursor-pointer:hover{
+  cursor: pointer;
 }

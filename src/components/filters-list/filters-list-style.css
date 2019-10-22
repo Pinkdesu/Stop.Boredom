@@ -5,6 +5,9 @@
     position: relative;
     z-index: 4;
 }
+.filters-list-button{
+    border: none;
+}
 .list-collapsed{
     visibility: hidden;
     transition: 0.3s linear;

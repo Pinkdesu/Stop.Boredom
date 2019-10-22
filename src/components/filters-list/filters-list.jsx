@@ -40,7 +40,7 @@ export default ({ sectionID, isCollapsed }) => {
     return(
         <div className={isCollapsed ? "filters-list-wrap list-collapsed" : "filters-list-wrap list-deployed"}>
             <Zoom opposite collapsed cascade when={!isCollapsed} duration={800}>
-                <button>Отчистить</button>
+                <button className="filters-list-button">Отчистить</button>
                 <ul className="ul-list">
                     {test.map(({ id, text }) => (
                         <FilterLiElement 
