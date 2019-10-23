@@ -52,7 +52,6 @@ class Header extends Component {
 
                         <ul className="menu-main">
                             <li className="left-item"><NavLink exact to='/'>Генератор</NavLink></li>
-                            <li className="left-item"><NavLink to='/kok'>Каталог</NavLink></li>
                             <li className="left-item"><NavLink to='/feed'>Лента</NavLink></li>
                             <li className="left-item"><NavLink to='/collaboration'>Сотрудничество</NavLink></li>
                             <li className="left-item"><Link to='/'>Войти</Link></li>

@@ -2,7 +2,7 @@ import React, {Component}  from 'react';
 import { connect } from 'react-redux';
 import './main-style.css';
 import FilterItem from '../filter-item/filter-item';
-import { FiltersListHOC } from '../filters-list/filters-list';
+import { FiltersList } from '../filters-list/filters-list';
 import { removeFilter } from '../../actions/actionCreator';
 
 class Main extends Component {
@@ -61,7 +61,7 @@ class Main extends Component {
                         ))}
                         
                         
-                        <FiltersListHOC className={"hoc"}
+                        <FiltersList className={"hoc"}
                                         test={activeFilters}
                                         handleClick={() => removeFilter(activeFilters.map(filters => filters.id))}
                                         sectionID={10}
@@ -79,4 +79,5 @@ class Main extends Component {
 const mapStateToProps = state => ({
     activeFilters: state.activeFilters
 });
+
 export default connect(mapStateToProps, { removeFilter })(Main);

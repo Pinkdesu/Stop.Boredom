@@ -24,9 +24,12 @@ export const FiltersList = ({ sectionID, isCollapsed, test, handleClick }) => {
     );
 }
 
-export const FiltersListHOC = (props) => {
-    console.log(props);
-        return(
-            <FiltersList {...props}/>
-        );
+export const withActiveFilters = (Component) => {
+    return class WithActiveFilters extends Component{
+        render(){
+            return(
+                <Component/>
+            );
+        }
+    }
 }
