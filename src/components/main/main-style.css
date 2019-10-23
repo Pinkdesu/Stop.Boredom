@@ -36,7 +36,12 @@
     width: 60%;
     height: 60px;
     min-width: 1020px;
+    transition: 1s height linear;
 }
+.quick-fi-deployed{
+    height: 120px;
+}
+
 .selected-filters-bar{
     display: flex;
     flex-flow: column nowrap;
@@ -45,11 +50,4 @@
     position: relative;
     z-index: 901;
     background-color: #fff;
-}
-.hoc{
-    display: flex;
-    flex-flow: column-reverse nowrap;
-    width: 100%;
-    position: relative;
-    z-index: 4;
 }

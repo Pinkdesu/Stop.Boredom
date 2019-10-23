@@ -47,7 +47,9 @@ class Main extends Component {
 
         return(
             <main className="main-wrapper">
-                <div className={isDeployed ? "quick-filters quick-fi-deployed" : "quick-filters quick-fi-collapsed"}>
+                <div onClick={() => this.setState(state => ({
+                    isDeployed: !state.isDeployed
+                }))} className={isDeployed ? "quick-filters quick-fi-deployed" : "quick-filters"}>
                         
                 </div>
                 
@@ -61,7 +63,7 @@ class Main extends Component {
                         ))}
                         
                         
-                        <FiltersList className={"hoc"}
+                        <FiltersList
                                         test={activeFilters}
                                         handleClick={() => removeFilter(activeFilters.map(filters => filters.id))}
                                         sectionID={10}
