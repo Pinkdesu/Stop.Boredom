@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './main-style.css';
 import FilterItem from '../filter-item/filter-item';
 import { FiltersList } from '../filters-list/filters-list';
+import QuickFilter from '../quick-filter/quick-filter';
 import { removeFilter } from '../../actions/actionCreator';
 
 class Main extends Component {
@@ -50,7 +51,12 @@ class Main extends Component {
                 <div onClick={() => this.setState(state => ({
                     isDeployed: !state.isDeployed
                 }))} className={isDeployed ? "quick-filters quick-fi-deployed" : "quick-filters"}>
-                        
+                        {test.map(({ id: sectionID, text: sectionText }) => (
+                            <QuickFilter
+                                    key={id} 
+                                    id={id}
+                                    text={text} />
+                        ))}
                 </div>
                 
                 <div className="main-bar-wrapper">
