@@ -2,6 +2,8 @@ import React, {Component}  from 'react';
 import { connect } from 'react-redux';
 import './main-style.css';
 import FilterItem from '../filter-item/filter-item';
+import { FiltersListHOC } from '../filters-list/filters-list';
+import { removeFilter } from '../../actions/actionCreator';
 
 class Main extends Component {
 
@@ -41,7 +43,7 @@ class Main extends Component {
         ];
 
         const { isDeployed } = this.state;
-        const { activeFilters } = this.props;
+        const { activeFilters, removeFilter } = this.props;
 
         return(
             <main className="main-wrapper">
@@ -58,12 +60,12 @@ class Main extends Component {
                                     sectionText={sectionText} />
                         ))}
                         
-                        <div className="selected-filters-bar">
-                            {activeFilters.map(({ text }) => (
-                            <p key={text}>
-                                {text}
-                            </p>))}   
-                        </div>
+                        
+                        <FiltersListHOC className={"hoc"}
+                                        test={activeFilters}
+                                        handleClick={() => removeFilter(activeFilters.map(filters => filters.id))}
+                                        sectionID={10}
+                        />
                     </div>
 
                     <div className="main-content">
@@ -77,4 +79,4 @@ class Main extends Component {
 const mapStateToProps = state => ({
     activeFilters: state.activeFilters
 });
-export default connect(mapStateToProps)(Main);
+export default connect(mapStateToProps, { removeFilter })(Main);

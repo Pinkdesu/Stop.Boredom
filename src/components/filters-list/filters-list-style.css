@@ -20,11 +20,14 @@
 }
 .ul-list {
     position: relative;
-    z-index: 1;
+    z-index: 904;
     list-style-type: none;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
+}
+.ul-hoc{
+    flex-flow: column-reverse nowrap;
 }

@@ -14,7 +14,7 @@
     border-radius: 0;
     background-color: #eee;
     position: relative;
-    z-index: 2;
+    z-index: 903;
 }
 .filter-item-button{
     display: flex;
@@ -28,7 +28,7 @@
     border: none;
     outline: none;
     position: relative;
-    z-index: 5;
+    z-index: 905;
     background-color: #fff;
 }
 .filter-item-text{

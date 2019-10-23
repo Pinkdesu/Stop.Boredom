@@ -18,7 +18,7 @@ const activeFilters = (state = ACTIVE_FILTERS.filters, {type, id, text}) => {
         }
       ];
     case REMOVE_FILTER:
-      return [...state].filter(filters => filters.id !== id);
+      return [...state].filter(filters => !id.includes(filters.id));
     // case COMPLETED_TASK:
     //   return [...state].map(task => {
     //     if(task.id === id) {

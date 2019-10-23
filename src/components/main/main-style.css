@@ -43,6 +43,13 @@
     overflow-y: auto;
     height: 200px;
     position: relative;
-    z-index: 5;
+    z-index: 901;
     background-color: #fff;
+}
+.hoc{
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    width: 100%;
+    position: relative;
+    z-index: 4;
 }
