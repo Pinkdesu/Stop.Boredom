@@ -1,7 +1,6 @@
 import React, { Component, useState }  from 'react';
 import './filters-list-style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import Zoom from 'react-reveal/Fade';
 import FilterLiElement from '../filter-li-element/filter-li-element';
 

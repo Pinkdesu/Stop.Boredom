@@ -51,11 +51,11 @@ class Main extends Component {
                 <div onClick={() => this.setState(state => ({
                     isDeployed: !state.isDeployed
                 }))} className={isDeployed ? "quick-filters quick-fi-deployed" : "quick-filters"}>
-                        {test.map(({ id: sectionID, text: sectionText }) => (
+                        {test.map(({  sectionID,  sectionText }) => (
                             <QuickFilter
-                                    key={id} 
-                                    id={id}
-                                    text={text} />
+                                    key={sectionID} 
+                                    id={sectionID}
+                                    text={sectionText} />
                         ))}
                 </div>
                 
@@ -68,12 +68,12 @@ class Main extends Component {
                                     sectionText={sectionText} />
                         ))}
                         
-                        
-                        <FiltersList
+
+                     <FiltersList
                                         test={activeFilters}
                                         handleClick={() => removeFilter(activeFilters.map(filters => filters.id))}
                                         sectionID={10}
-                        />
+                        />  
                     </div>
 
                     <div className="main-content">

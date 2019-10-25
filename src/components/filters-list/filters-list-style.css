@@ -7,6 +7,9 @@
 }
 .filters-list-button{
     border: none;
+    order: 1;
+    width: 30px;
+    margin: 10px 0;
 }
 .list-collapsed{
     visibility: hidden;
@@ -27,6 +30,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
+    order: 2;
 }
 .ul-hoc{
     flex-flow: column-reverse nowrap;
