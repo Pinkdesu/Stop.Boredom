@@ -1,7 +1,7 @@
 import React, { useState }  from 'react';
-import './filter-li-element-style.css';
 import { connect } from 'react-redux';
 import { addFilter , removeFilter } from '../../actions/actionCreator';
+import './filter-li-element-style.scss';
 
 const FilterLiElement = ({ id, text, addFilter, removeFilter }) => {
     const [checked, onChange] = useState(false);
@@ -17,10 +17,10 @@ const FilterLiElement = ({ id, text, addFilter, removeFilter }) => {
     }
 
     return(
-        <li className="filter-li-element-wrap">
+        <li>
             <div className="filter-box-wrap">
-                <input id={id} checked={checked} onChange={onToggle} className="fi-hidden-checkbox cursor-pointer" type="checkbox"/>
-                <label htmlFor={id} className="fi-label-wrap">
+                <input id={id} value={id} checked={checked} onChange={onToggle} type="checkbox"/>
+                <label htmlFor={id}>
                     {text}
                 </label>
             </div>

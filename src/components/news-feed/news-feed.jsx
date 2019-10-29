@@ -1,5 +1,5 @@
 import React, { Component }  from 'react';
-import './news-feed-style.css';
+import './news-feed-style.scss';
 
 class NewsFeed extends Component{
     render(){

@@ -1,10 +1,11 @@
 import React, {Component}  from 'react';
 import { connect } from 'react-redux';
-import './main-style.css';
+
 import FilterItem from '../filter-item/filter-item';
-import { FiltersList } from '../filters-list/filters-list';
 import QuickFilter from '../quick-filter/quick-filter';
+import ActiveFiltersList from '../active-filters-list/active-filters-list';
 import { removeFilter } from '../../actions/actionCreator';
+import './main-style.scss';
 
 class Main extends Component {
 
@@ -66,14 +67,9 @@ class Main extends Component {
                                     key={sectionID} 
                                     sectionID={sectionID}
                                     sectionText={sectionText} />
-                        ))}
-                        
+                        ))}  
 
-                     <FiltersList
-                                        test={activeFilters}
-                                        handleClick={() => removeFilter(activeFilters.map(filters => filters.id))}
-                                        sectionID={10}
-                        />  
+                        <ActiveFiltersList test={activeFilters}/>
                     </div>
 
                     <div className="main-content">

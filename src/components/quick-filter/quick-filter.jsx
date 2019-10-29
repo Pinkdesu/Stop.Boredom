@@ -1,5 +1,5 @@
 import React, { Component, useState }  from 'react';
-import './quick-filter-style.css';
+import './quick-filter-style.scss';
 
 const QuickFilter = ({id, text}) => {
     return(

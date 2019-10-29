@@ -1,9 +1,9 @@
 import React, { Component, Fragment }  from 'react';
-import './header-style.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarker, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import { NavLink, Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarker, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import Fade from 'react-reveal/Fade';
+import './header-style.scss';
 
 class Header extends Component {
     
@@ -47,14 +47,14 @@ class Header extends Component {
                 <header className="header-wrapper">
                     <nav className="navbar">
                         <Link to='/' className="logo-link">
-                            <img className="logo-img" src="/images/logo-min.jpg"/>
+                            <img src="/images/logo-min.jpg"/>
                         </Link>
 
                         <ul className="menu-main">
-                            <li className="left-item"><NavLink exact to='/'>Генератор</NavLink></li>
-                            <li className="left-item"><NavLink to='/feed'>Лента</NavLink></li>
-                            <li className="left-item"><NavLink to='/collaboration'>Сотрудничество</NavLink></li>
-                            <li className="left-item"><Link to='/'>Войти</Link></li>
+                            <li><NavLink exact to='/'>Генератор</NavLink></li>
+                            <li><NavLink to='/feed'>Лента</NavLink></li>
+                            <li><NavLink to='/collaboration'>Сотрудничество</NavLink></li>
+                            <li><Link to='/'>Войти</Link></li>
                         </ul>   
                     </nav>
                 </header>

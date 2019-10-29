@@ -1,5 +1,5 @@
 import React, {Component}  from 'react';
-import './collaboration-page-style.css';
+import './collaboration-page-style.scss';
 
 class CollaborationPage extends Component {
     render() {

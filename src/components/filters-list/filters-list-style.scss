@@ -1,0 +1,39 @@
+.filters-list-wrap{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    position: relative;
+    z-index: 903;
+    visibility: hidden;
+    transition: 0.3s linear;
+    height: 0;
+
+    & > button{
+        border: none;
+        order: 1;
+    }
+
+    .ul-list {
+        position: relative;
+        padding: 10px;
+        z-index: 903;
+        list-style-type: none;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        order: 2;
+
+        & > li{
+            font-family: "Trebuchet MS", "Lucida Sans";
+            border-bottom: 1px solid #efefef;
+            margin-bottom: 5px;
+            width: 100%;
+        }
+    }
+}
+.list-deployed{
+    visibility: visible;
+    height: 200px;
+}

@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Main from './components/main/main';
 import CollaborationPage from './components/collaboration-page/collaboration-page';
 import NewsFeed from './components/news-feed/news-feed';
