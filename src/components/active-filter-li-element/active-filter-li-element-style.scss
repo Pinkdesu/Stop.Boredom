@@ -1,8 +1,7 @@
+@import '../../module';
+
 .active-filter-box-wrap{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-flow: row nowrap;
+    @include flex-constructor(row nowrap, space-between, center);
     width: inherit;
     height: 30px;
     margin-bottom: 5px;

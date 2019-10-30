@@ -1,7 +1,7 @@
+@import '../../module';
+
 .filter-box-wrap{
-    display: flex;
-    align-items: center;
-    flex-flow: row nowrap;
+    @include flex-constructor(row nowrap, flex-start, center);
     position: relative;
     z-index: 904;
     width: 100%;

@@ -1,8 +1,9 @@
+@import '../../module';
+
 .active-filters-wrap{
-    display: flex;
+    @include flex-constructor(column nowrap);
     position: relative;
     z-index: 905;
-    flex-flow: column nowrap;
     width: 100%;
     max-height: 150px;
     margin: 20px 0;

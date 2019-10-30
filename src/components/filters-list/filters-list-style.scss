@@ -1,6 +1,7 @@
+@import '../../module';
+
 .filters-list-wrap{
-    display: flex;
-    flex-flow: column nowrap;
+    @include flex-constructor(column nowrap);
     width: 100%;
     position: relative;
     z-index: 903;

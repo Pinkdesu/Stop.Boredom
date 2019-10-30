@@ -52,6 +52,7 @@ class Header extends Component {
 
                         <ul className="menu-main">
                             <li><NavLink exact to='/'>Генератор</NavLink></li>
+                            <li><NavLink to='/places'>Места</NavLink></li>
                             <li><NavLink to='/feed'>Лента</NavLink></li>
                             <li><NavLink to='/collaboration'>Сотрудничество</NavLink></li>
                             <li><Link to='/'>Войти</Link></li>
