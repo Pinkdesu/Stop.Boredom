@@ -5,9 +5,19 @@
     align-items: $alItems;
     align-content: $alContent;
 }
+@mixin block-width($width: inherit, $min-width: 0, $max-width: none){
+    width: $width;
+    min-width: $min-width;
+    max-width: $max-width;
+}
+
 %cursor-pointer{
     cursor: default;
     &:hover{
       cursor: pointer;
     }
+}
+.collapsed{
+    max-height: 0;
+    visibility: hidden;
 }

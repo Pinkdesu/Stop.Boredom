@@ -2,14 +2,12 @@
 
 .filter-item-bar{
     @include flex-constructor(column nowrap, stretch);
-    width: 100%;
+    @include block-width(100%);
     font-size: 16px;
     font-weight: 400;
     letter-spacing: .3px;
     line-height: 1.12;
     border-bottom: 1px solid #ddd;
-    transition: 0.5s heigth linear;
-    height: auto;
     border-radius: 0;
     background-color: #eee;
     position: relative;
@@ -17,9 +15,8 @@
 
     & > button{
         @include flex-constructor(row nowrap, flex-start, center);
-        width: inherit;
-        height: 50px;
-        padding: 10px;
+        @include block-width();
+        padding: 20px;
         color: #666;
         border: none;
         outline: none;

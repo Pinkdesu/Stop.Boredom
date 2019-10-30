@@ -45,7 +45,7 @@ class Main extends Component {
         ];
 
         const { isDeployed } = this.state;
-        const { activeFilters, removeFilter } = this.props;
+        const { activeFilters } = this.props;
 
         return(
             <main className="main-wrapper">
@@ -69,7 +69,7 @@ class Main extends Component {
                                     sectionText={sectionText} />
                         ))}  
 
-                        <ActiveFiltersList test={activeFilters}/>
+                        <ActiveFiltersList activeFilters={activeFilters}/>
                     </div>
 
                     <div className="main-content">

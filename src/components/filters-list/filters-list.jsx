@@ -1,23 +1,32 @@
 import React, { Component, useState }  from 'react';
-import Zoom from 'react-reveal/Fade';
+import { connect } from 'react-redux';
+import { addFilter , removeFilter } from '../../actions/actionCreator';
 import FilterLiElement from '../filter-li-element/filter-li-element';
 import './filters-list-style.scss';
 
-export const FiltersList = ({ sectionID, isCollapsed, test, handleClick }) => {
+const FiltersList = ({ sectionID, isDeployed, test, activeFilters , removeFilter}) => {
+
+    const handleClick = () => {
+        
+    }
 
     return(
-        <div className={isCollapsed ? "filters-list-wrap" : "filters-list-wrap list-deployed"}>
+        <div className={isDeployed ? "filters-list-wrap" : "filters-list-wrap collapsed"}>
             <button onClick={handleClick}>Отчистить</button>
-            <Zoom opposite collapsed when={!isCollapsed} duration={800}>
-                <ul className="ul-list">
-                    {test.map(({ id, text }) => (
-                        <FilterLiElement 
-                            key={`${sectionID} - ${id}`} 
-                            id={`${sectionID} - ${id}`}
-                            text={text}/>
-                    ))}
-                </ul>
-            </Zoom>
+            <ul className="ul-list">
+                {test.map(({ id, text }) => (
+                    <FilterLiElement 
+                        key={`${sectionID} - ${id}`} 
+                        id={`${sectionID} - ${id}`}
+                        text={text}/>
+                ))}
+            </ul>
         </div>
     );
 }
+
+const mapStateToProps = (state) => ({
+    activeFilters: state.activeFilters
+});
+
+export default connect(mapStateToProps, { removeFilter })(FiltersList);

@@ -2,12 +2,13 @@
 
 .filters-list-wrap{
     @include flex-constructor(column nowrap);
-    width: 100%;
+    @include block-width(100%);
+    transition: visibility 0.3s linear, max-height 0.3s linear;
+    visibility: visible;
     position: relative;
     z-index: 903;
-    visibility: hidden;
-    transition: 0.3s linear;
-    height: 0;
+    max-height: 200px;
+
 
     & > button{
         border: none;
@@ -15,6 +16,7 @@
     }
 
     .ul-list {
+        @include block-width();
         position: relative;
         padding: 10px;
         z-index: 903;
@@ -27,14 +29,8 @@
         order: 2;
 
         & > li{
-            font-family: "Trebuchet MS", "Lucida Sans";
-            border-bottom: 1px solid #efefef;
+            @include block-width(100%);
             margin-bottom: 5px;
-            width: 100%;
         }
     }
-}
-.list-deployed{
-    visibility: visible;
-    height: 200px;
 }

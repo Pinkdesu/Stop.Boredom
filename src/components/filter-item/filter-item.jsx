@@ -1,11 +1,11 @@
 import React, { useState }  from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons'
-import { FiltersList } from '../filters-list/filters-list';
+import FiltersList from '../filters-list/filters-list';
 import './filter-item-style.scss';
 
 export default ({sectionID, sectionText}) => {
-    const [isCollapsed, handleClick] = useState(true);
+    const [isDeployed, handleClick] = useState(false);
     const test = [
         {
             id: '1',
@@ -38,14 +38,13 @@ export default ({sectionID, sectionText}) => {
     ];
     return(
         <div className="filter-item-bar">
-            <button className="cursor-pointer" onClick={() => handleClick(!isCollapsed)}>
-                <FontAwesomeIcon icon={isCollapsed ? faAngleDown : faAngleUp } className="filter-item-icon"/>
+            <button className="cursor-pointer" onClick={() => handleClick(!isDeployed)}>
+                <FontAwesomeIcon icon={isDeployed ? faAngleUp : faAngleDown } className="filter-item-icon"/>
                 <span>{sectionText}</span>
             </button>
             <FiltersList sectionID={sectionID} 
-                         isCollapsed={isCollapsed}
-                         test={test}
-                         handleClick={() => {}}/>
+                         isDeployed={isDeployed}
+                         test={test}/>
         </div>
     );
 }

@@ -2,18 +2,16 @@
 
 .filter-box-wrap{
     @include flex-constructor(row nowrap, flex-start, center);
+    @include block-width(100%);
     position: relative;
     z-index: 904;
-    width: 100%;
-    height: 30px;
     border-radius: 5px;
     background-color: #fff;
 
     & > input[type="checkbox"]{
+        @include block-width(inherit);
         position: absolute;
         left: 0;
-        width: inherit;
-        height: inherit;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
@@ -22,8 +20,8 @@
     }
 
     & > label{
-        padding: 10px;
-        width: inherit;
+        @include block-width(inherit);
+        padding: 15px;
         font-size: 14px;
         text-align: left;
         font-weight: 400;
