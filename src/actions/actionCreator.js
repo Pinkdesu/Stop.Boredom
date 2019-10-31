@@ -1,12 +1,23 @@
-import { ADD_FILTER, REMOVE_FILTER } from '../constants';
+import * as types from '../constants';
 
-export const addFilter = ( id, text ) => ({
-    type: ADD_FILTER,
+export const addAllFilters = inputFilters => ({
+    type: types.ADD_ALL_FILTERS,
+    inputFilters
+});
+
+export const addActiveFilter = ( id, text ) => ({
+    type: types.ADD_ACTIVE_FILTER,
     id,
     text
 });
 
-export const removeFilter = id =>({
-    type: REMOVE_FILTER,
+export const removeActiveFilter = id => ({
+    type: types.REMOVE_ACTIVE_FILTER,
     id
 });
+
+export const removeActiveFilters = idList => ({
+    type: types.REMOVE_ACTIVE_FILTERS,
+    idList
+});
+

@@ -1,10 +1,11 @@
 import React, {Component}  from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import FilterItem from '../filter-item/filter-item';
 import QuickFilter from '../quick-filter/quick-filter';
 import ActiveFiltersList from '../active-filters-list/active-filters-list';
-import { removeFilter } from '../../actions/actionCreator';
+import { addAllFilters } from '../../actions/actionCreator';
 import './main-style.scss';
 
 class Main extends Component {
@@ -16,57 +17,37 @@ class Main extends Component {
         }  
     }
 
+    componentDidMount = () => {
+        const { addAllFilters } = this.props; 
+        axios.get("https://jsonstorage.net/api/items/2ee5fb72-8f5c-4a4c-9829-edf03a4e2333")
+             .then(response => addAllFilters(response.data))
+             .catch();
+    }
+
     render() {
-        const test = [
-            {
-                sectionID: '1',
-                sectionText: 'Раздел 1'
-            },
-    
-            {
-                sectionID: '2',
-                sectionText: 'Раздел 2'
-            },
-    
-            {
-                sectionID: '3',
-                sectionText: 'Раздел 3'
-            },
-    
-            {
-                sectionID: '4',
-                sectionText: 'Раздел 4'
-            },
-    
-            {
-                sectionID: '5',
-                sectionText: 'Раздел 5'
-            },
-        ];
 
         const { isDeployed } = this.state;
-        const { activeFilters } = this.props;
+        const { allFilters, activeFilters } = this.props;
 
         return(
             <main className="main-wrapper">
                 <div onClick={() => this.setState(state => ({
                     isDeployed: !state.isDeployed
                 }))} className={isDeployed ? "quick-filters quick-fi-deployed" : "quick-filters"}>
-                        {test.map(({  sectionID,  sectionText }) => (
-                            <QuickFilter
-                                    key={sectionID} 
-                                    id={sectionID}
-                                    text={sectionText} />
-                        ))}
+                        <QuickFilter
+                                key={"q1"} 
+                                id={"q1"}
+                                text={"Quick1"} />
                 </div>
                 
                 <div className="main-bar-wrapper">
                     <div className="filter-bar">
-                        {test.map(({ sectionID, sectionText }) => (
+                        {allFilters.map(({ sectionID, sectionText, filters }) => (
                             <FilterItem
                                     key={sectionID} 
                                     sectionID={sectionID}
-                                    sectionText={sectionText} />
+                                    sectionText={sectionText} 
+                                    filters={filters}/>
                         ))}  
 
                         <ActiveFiltersList activeFilters={activeFilters}/>
@@ -81,7 +62,8 @@ class Main extends Component {
     }
 }
 const mapStateToProps = state => ({
+    allFilters: state.allFilters,
     activeFilters: state.activeFilters
 });
 
-export default connect(mapStateToProps, { removeFilter })(Main);
+export default connect(mapStateToProps, { addAllFilters })(Main);

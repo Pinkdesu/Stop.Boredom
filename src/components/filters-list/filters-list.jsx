@@ -1,32 +1,23 @@
 import React, { Component, useState }  from 'react';
 import { connect } from 'react-redux';
-import { addFilter , removeFilter } from '../../actions/actionCreator';
+import { removeActiveFilters } from '../../actions/actionCreator';
 import FilterLiElement from '../filter-li-element/filter-li-element';
 import './filters-list-style.scss';
 
-const FiltersList = ({ sectionID, isDeployed, test, activeFilters , removeFilter}) => {
-
-    const handleClick = () => {
-        
-    }
+const FiltersList = ({ sectionID, isDeployed, filters, removeActiveFilters }) => {
 
     return(
         <div className={isDeployed ? "filters-list-wrap" : "filters-list-wrap collapsed"}>
-            <button onClick={handleClick}>Отчистить</button>
+            <button onClick={() => removeActiveFilters(filters.map(filter => filter.id))}>Отчистить</button>
             <ul className="ul-list">
-                {test.map(({ id, text }) => (
+                {filters.map(({ id, text }) => (
                     <FilterLiElement 
-                        key={`${sectionID} - ${id}`} 
-                        id={`${sectionID} - ${id}`}
+                        key={id} 
+                        id={id}
                         text={text}/>
                 ))}
             </ul>
         </div>
     );
 }
-
-const mapStateToProps = (state) => ({
-    activeFilters: state.activeFilters
-});
-
-export default connect(mapStateToProps, { removeFilter })(FiltersList);
+export default connect(() => ({}), { removeActiveFilters })(FiltersList);

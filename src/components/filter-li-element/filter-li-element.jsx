@@ -1,18 +1,18 @@
 import React, { useState }  from 'react';
 import { connect } from 'react-redux';
-import { addFilter , removeFilter } from '../../actions/actionCreator';
+import { addActiveFilter , removeActiveFilter } from '../../actions/actionCreator';
 import './filter-li-element-style.scss';
 
-const FilterLiElement = ({ id, text, addFilter, removeFilter }) => {
-    const [checked, onChange] = useState(false);
+const FilterLiElement = ({ id, text, addActiveFilter, removeActiveFilter, activeFilters }) => {
+    const checked = activeFilters.map(filter => filter.id)
+                                 .includes(id);
 
     const onToggle = (e) => {
-        onChange(!checked);
         if (!checked) {
-            addFilter(id, text);
+            addActiveFilter(id, text);
         }
         else {
-            removeFilter(id);
+            removeActiveFilter(id);
         }
     }
 
@@ -28,4 +28,7 @@ const FilterLiElement = ({ id, text, addFilter, removeFilter }) => {
     );
 }
 
-export default connect(() => ({}), { addFilter, removeFilter })(FilterLiElement);
+const mapStateToProps = (state) => ({
+    activeFilters: state.activeFilters
+});
+export default connect(mapStateToProps, { addActiveFilter, removeActiveFilter })(FilterLiElement);
