@@ -1,7 +1,7 @@
 import React, {Component}  from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-
+import Rotate from 'react-reveal/Rotate';
 import FilterItem from '../filter-item/filter-item';
 import QuickFilter from '../quick-filter/quick-filter';
 import ActiveFiltersList from '../active-filters-list/active-filters-list';
@@ -54,7 +54,11 @@ class Main extends Component {
                     </div>
 
                     <div className="main-content">
+                        <div className="circle-box">
+                            <span>Circle</span>
+                        </div>
 
+                        
                     </div>
                 </div>
             </main>

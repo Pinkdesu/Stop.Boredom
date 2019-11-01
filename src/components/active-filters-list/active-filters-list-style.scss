@@ -8,6 +8,7 @@
     position: relative;
     z-index: 903;
     max-height: 200px;
+    background-color: #eee;
 
     & > ul{
         @include block-width();
@@ -20,7 +21,6 @@
         overflow-y: auto;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
-        padding: 10px;
 
         & > li{
             @include block-width();
@@ -30,5 +30,9 @@
 
     & > span{
         @include block-width();
+        padding: 20px;
+        text-align: center;
+        background-color: #fff;
+        
     }
 }
