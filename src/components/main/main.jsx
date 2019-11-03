@@ -5,6 +5,7 @@ import Rotate from 'react-reveal/Rotate';
 import FilterItem from '../filter-item/filter-item';
 import QuickFilter from '../quick-filter/quick-filter';
 import ActiveFiltersList from '../active-filters-list/active-filters-list';
+import AnswerPopup from '../answer-popup/answer-popup';
 import { addAllFilters } from '../../actions/actionCreator';
 import './main-style.scss';
 
@@ -57,8 +58,19 @@ class Main extends Component {
                         <div className="circle-box">
                             <span>Circle</span>
                         </div>
+                          
+                        <div className="work-description-box">
+                            <ul>
+                                <li>Lorem ipsum dolor sit amet consectetur.</li>
+                                <li>Natus sunt veritatis quidem doloribus veniam.</li>
+                                <li>Quis omnis voluptatibus dolor ad sunt.</li>
+                                <li>At quos ratione commodi qui esse!</li>
+                                <li>Exercitationem porro fuga necessitatibus ut repellendus.</li>
+                                <li>Repudiandae corporis similique voluptas. Illum, eius?</li>
+                            </ul>
+                        </div>
 
-                        
+                        <AnswerPopup />
                     </div>
                 </div>
             </main>

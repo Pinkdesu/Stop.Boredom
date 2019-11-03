@@ -1,0 +1,10 @@
+@import '../../module';
+
+.answer-popup-wrap{
+    @include block-width();
+    position: absolute;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    bottom: 0;
+    height: 400px;
+}
