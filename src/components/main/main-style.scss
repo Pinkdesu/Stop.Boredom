@@ -26,14 +26,7 @@
             .circle-box{
                 @include block-width();
                 @include flex-constructor(column nowrap, center, center);
-                height: 400px;
-            }
-            .work-description-box{
-                @include block-width();
-                height: 400px;
-                & > ul{
-                    list-style: none;
-                }
+                height: 500px;
             }
         }
 

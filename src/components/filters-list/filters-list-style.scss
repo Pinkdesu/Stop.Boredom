@@ -10,15 +10,25 @@
     max-height: 200px;
 
 
-    & > button{
-        border: none;
-        order: 1;
+    .filters-list-header{
+        @include flex-constructor(row nowrap, space-between, center);
+        margin: 10px;
+        z-index: 903;
+
+        & > button{
+            border: none;
+            padding: 10px;
+        }
+
+        & > span{
+            padding: 10px;
+        }
     }
 
     .ul-list {
         @include block-width();
         position: relative;
-        padding: 10px;
+        padding: 0 10px 10px 10px;
         z-index: 903;
         list-style-type: none;
         -webkit-box-sizing: border-box;
@@ -26,7 +36,6 @@
         overflow-y: auto;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
-        order: 2;
 
         & > li{
             @include block-width(100%);

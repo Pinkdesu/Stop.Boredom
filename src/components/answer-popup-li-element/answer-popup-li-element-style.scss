@@ -1,0 +1,8 @@
+@import '../../module';
+
+.answer-popup-li-box-wrap{
+    @include flex-constructor(row nowrap, flex-start, center);
+    @include block-width(100%);
+    position: relative;
+    border-radius: 5px;
+}

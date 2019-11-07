@@ -3,16 +3,18 @@ import { connect } from 'react-redux';
 import { addActiveFilter , removeActiveFilter } from '../../actions/actionCreator';
 import './filter-li-element-style.scss';
 
-const FilterLiElement = ({ id, text, addActiveFilter, removeActiveFilter, activeFilters }) => {
-    const checked = activeFilters.map(filter => filter.id)
-                                 .includes(id);
+const FilterLiElement = ({ id, text, addActiveFilter, removeActiveFilter, activeFilters, setActiveFiltersCount }) => {
+    
+    const checked = activeFilters.map(filter => filter.id).includes(id);
 
     const onToggle = (e) => {
         if (!checked) {
             addActiveFilter(id, text);
+            setActiveFiltersCount(+1);
         }
         else {
             removeActiveFilter(id);
+            setActiveFiltersCount(-1);
         }
     }
 
@@ -31,4 +33,5 @@ const FilterLiElement = ({ id, text, addActiveFilter, removeActiveFilter, active
 const mapStateToProps = (state) => ({
     activeFilters: state.activeFilters
 });
+
 export default connect(mapStateToProps, { addActiveFilter, removeActiveFilter })(FilterLiElement);
