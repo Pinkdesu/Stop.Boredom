@@ -5,7 +5,7 @@ const AnswerPopupLiElement = () => {
     return(
         <li>
             <div className="answer-popup-li-box-wrap">
-                Hi
+                <span>hi</span>
             </div>
         </li>
     );

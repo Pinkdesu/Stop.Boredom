@@ -1,10 +1,10 @@
-import React, { Component, useState }  from 'react';
+import React  from 'react';
 import './quick-filter-style.scss';
 
 const QuickFilter = ({id, text}) => {
     return(
         <div className="quick-flter-item">
-            <span className="quick-flter-item-text">{text}</span>
+            <span className="quick-flter-item-text">{text} - {id}</span>
         </div>
     );
 }

@@ -16,11 +16,8 @@
         padding: 10px;
         z-index: 903;
         list-style-type: none;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
         overflow-y: auto;
         overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
 
         & > li{
             @include block-width();

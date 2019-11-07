@@ -4,21 +4,27 @@
     @include block-width(60%);
     position: absolute;
     transition: max-height 0.3s linear, visibility 0.3s linear;
-    background-color: lightcoral;
+    background-color: #eee;
     border-top: 1px solid #eee;
     bottom: 0;
-    max-height: 200px;
+    max-height: 300px;
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
     visibility: visible;
-    
+
+    & > span {
+        @include flex-constructor(row nowrap, center);
+        @include block-width(100%);
+        position: relative;
+        padding: 10px;
+        background-color:lightseagreen;
+    }
 
     & > ul {
         @include block-width(100%);
         max-height: 150px;
         position: relative;
-        padding: 0 10px 10px 10px;
+        padding: 10px;
         list-style-type: none;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
         overflow-y: auto;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;

@@ -5,4 +5,16 @@
     @include block-width(100%);
     position: relative;
     border-radius: 5px;
+
+    & > span{
+        @include block-width(inherit);
+        background-color: #fff;
+        padding: 15px;
+        font-size: 14px;
+        text-align: left;
+        font-weight: 400;
+        color: #2d2d2d;
+        line-height: 1.12;
+        border-radius: 5px;
+    }
 }

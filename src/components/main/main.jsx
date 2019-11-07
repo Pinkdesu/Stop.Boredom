@@ -48,7 +48,7 @@ const Main = ({ allFilters, activeFilters, addAllFilters }) => {
                     <div className="circle-box">
                         <button onClick={() => getAnswer()}>Circle</button>
                     </div>
-
+                    
                     <AnswerPopup isDeployedAnswerWindow={isDeployedAnswerWindow}/>
                 </div>
             </div>

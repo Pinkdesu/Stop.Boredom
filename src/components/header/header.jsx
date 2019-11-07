@@ -47,7 +47,7 @@ class Header extends Component {
                 <header className="header-wrapper">
                     <nav className="navbar">
                         <Link to='/' className="logo-link">
-                            <img src="/images/logo-min.jpg"/>
+                            <img src="/images/logo-min.jpg" alt="logo"/>
                         </Link>
 
                         <ul className="menu-main">

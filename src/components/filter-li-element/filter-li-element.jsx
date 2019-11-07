@@ -1,4 +1,4 @@
-import React, { useState }  from 'react';
+import React  from 'react';
 import { connect } from 'react-redux';
 import { addActiveFilter , removeActiveFilter } from '../../actions/actionCreator';
 import './filter-li-element-style.scss';
