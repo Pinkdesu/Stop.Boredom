@@ -3,17 +3,14 @@
 .filters-list-wrap{
     @include flex-constructor(column nowrap);
     @include block-width(100%);
-    transition: visibility 0.3s linear, max-height 0.3s linear;
+    transition: visibility 0.3s linear, height 0.4s linear;
     visibility: visible;
-    position: relative;
-    z-index: 903;
-    max-height: 200px;
+    height: 200px;
 
 
     .filters-list-header{
         @include flex-constructor(row nowrap, space-between, center);
         margin: 10px;
-        z-index: 903;
 
         & > button{
             border: none;
@@ -27,9 +24,7 @@
 
     .ul-list {
         @include block-width();
-        position: relative;
         padding: 0 10px 10px 10px;
-        z-index: 903;
         list-style-type: none;
         overflow-y: auto;
         overflow-x: hidden;

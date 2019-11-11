@@ -1,33 +1,31 @@
 @import '../../module';
 
+%general-style{
+    @include block-width(100%);
+    padding: 10px;
+}
+
 .answer-popup-wrap{
     @include block-width(60%);
+    @include flex-constructor(column nowrap, stretch);
     position: absolute;
-    transition: max-height 0.3s linear, visibility 0.3s linear;
+    max-height: 200px;
     background-color: #eee;
     border-top: 1px solid #eee;
     bottom: 0;
-    max-height: 300px;
     box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
-    visibility: visible;
 
     & > span {
         @include flex-constructor(row nowrap, center);
-        @include block-width(100%);
-        position: relative;
-        padding: 10px;
+        @extend %general-style;
         background-color:lightseagreen;
+        max-height: 50px;
     }
 
     & > ul {
-        @include block-width(100%);
-        max-height: 150px;
-        position: relative;
-        padding: 10px;
+        @extend %general-style;
         list-style-type: none;
         overflow-y: auto;
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
 
         & > li{
             @include block-width(100%);

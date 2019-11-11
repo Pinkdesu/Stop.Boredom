@@ -3,18 +3,16 @@
 .active-filters-wrap{
     @include flex-constructor(column nowrap);
     @include block-width(100%);
-    transition: visibility 0.3s linear, max-height 0.3s linear;
-    visibility: visible;
+    transition: visibility 0.3s linear, height 0.4s linear;
     position: relative;
-    z-index: 903;
-    max-height: 200px;
+    z-index: 905;
+    visibility: visible;
+    height: 200px;
     background-color: #eee;
 
     & > ul{
         @include block-width();
-        position: relative;
         padding: 10px;
-        z-index: 903;
         list-style-type: none;
         overflow-y: auto;
         overflow-x: hidden;
