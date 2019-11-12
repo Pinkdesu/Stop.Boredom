@@ -29,16 +29,6 @@
         .menu-main {
             @include flex-constructor(row nowrap, flex-end);
             list-style: none;
-
-            a:after{
-                content: "";
-                display: table;
-                clear: both;
-            }
-            
-            a:hover{
-                background: rgba(0,0,0,.3);
-            }
             
             .active{
                 background: rgba(0,0,0,.3);
@@ -55,6 +45,16 @@
                 font-weight: bold;
                 transition: .3s linear;
                 color: #fff;
+
+                &:after{
+                    content: "";
+                    display: table;
+                    clear: both;
+                }
+                
+                &:hover{
+                    background: rgba(0,0,0,.3);
+                }
             }
         }
     }

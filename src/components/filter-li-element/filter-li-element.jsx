@@ -7,7 +7,7 @@ const FilterLiElement = ({ id, text, addActiveFilter, removeActiveFilter, active
     
     const checked = activeFilters.map(filter => filter.id).includes(id);
 
-    const onToggle = (e) => {
+    const onToggle = () => {
         if (!checked) {
             addActiveFilter(id, text);
             setActiveFiltersCount(+1);
@@ -21,7 +21,7 @@ const FilterLiElement = ({ id, text, addActiveFilter, removeActiveFilter, active
     return(
         <li>
             <div className="filter-box-wrap">
-                <input id={id} value={id} checked={checked} onChange={onToggle} type="checkbox"/>
+                <input id={id} value={id} checked={checked} onChange={() => onToggle()} type="checkbox"/>
                 <label htmlFor={id}>
                     {text}
                 </label>

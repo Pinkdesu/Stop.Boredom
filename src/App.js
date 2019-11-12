@@ -1,5 +1,7 @@
-import React, { Fragment } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons';
 
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
@@ -7,27 +9,69 @@ import Main from './components/main/main';
 import CollaborationPage from './components/collaboration-page/collaboration-page';
 import NewsFeed from './components/news-feed/news-feed';
 import ErrorPage from './components/error-page/error-page';
+import LoginPage from './components/login-page/login-page';
+import UserPage from './components/user-page/user-page';
 
-function App() {
+library.add(fab);
+
+const App = () =>  {
+
+  const [isAuthenticated, SetAuthenticated] = useState(false);
+  
+  const Authenticate = (cb) => {
+    SetAuthenticated(true);
+    setTimeout(cb, 100);
+  }
+
+  const SignOut = (cb) => {
+    SetAuthenticated(false);
+    setTimeout(cb, 100);
+  }
+
   return (
-    <BrowserRouter>
-      <Fragment>
+      <>
         <Header />
 
         <Switch>
-            <Route exact path='/' component={Main}/>
-            <Route path='/collaboration' component={CollaborationPage}/>
-            <Route path='/feed' component={NewsFeed}/>
-            <Route path='*' component={ErrorPage}/>
-        </Switch>
+            <Route exact path='/'>
+              <>
+                <Main/>
+                <Footer/>
+              </>
+            </Route> 
 
-        <Switch>
-            <Route exact path='/' component={Footer}/>
-            <Route path='/collaboration' component={Footer}/>
-        </Switch>
+            <Route path='/collaboration'>
+              <>
+                <CollaborationPage/>
+                <Footer/>
+              </>
+            </Route>
 
-      </Fragment>
-    </BrowserRouter>
+            <Route path='/feed'>
+              <NewsFeed/>
+            </Route>
+
+            <Route path='/login'>
+              <LoginPage Authenticate={(cb) => Authenticate(cb)}/>
+            </Route>
+
+            <Route
+              render={({ location }) =>
+                isAuthenticated ? (<UserPage SignOut={ cb => SignOut(cb) }/>) : 
+                  (<Redirect
+                    to={{
+                      pathname: "/login",
+                      state: { from: location }
+                    }}
+                  />)
+              }
+            />
+
+            <Route path='*'>
+              <ErrorPage/>
+            </Route>
+        </Switch>
+      </>
   );
 }
 

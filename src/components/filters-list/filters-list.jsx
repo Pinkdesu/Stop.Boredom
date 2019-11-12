@@ -10,7 +10,7 @@ const FiltersList = ({ sectionID, isDeployed, filters, removeActiveFilters, acti
     const [count, SetCount] = React.useState(0);
 
     const setActiveFiltersCount = (value) => {
-        SetCount(count + +value);
+        SetCount(count + value);
     }
 
     return(

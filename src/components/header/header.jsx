@@ -55,7 +55,7 @@ class Header extends Component {
                             <li><NavLink to='/places'>Места</NavLink></li>
                             <li><NavLink to='/feed'>Лента</NavLink></li>
                             <li><NavLink to='/collaboration'>Сотрудничество</NavLink></li>
-                            <li><Link to='/'>Войти</Link></li>
+                            <li><NavLink to='/user'>Войти</NavLink></li>
                         </ul>   
                     </nav>
                 </header>
