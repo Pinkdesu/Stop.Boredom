@@ -1,17 +1,15 @@
 import React from 'react';
 import './login-form-style.scss';
-import { NavLink, useHistory,  useLocation} from 'react-router-dom';
+//import { useHistory,  useLocation} from 'react-router-dom';
 import FormInputItem from '../form-input-item/form-input-item';
 
-const LoginForm = ({ Authenticate }) => {
-    const history = useHistory();
-    const location = useLocation();
-
-    let { from } = location.state || { from: { pathname: "/" } };
+const LoginForm = ({ authenticate }) => {
+    // const history = useHistory();
+    // const location = useLocation();
+    // let { from } = location.state || { from: { pathname: "/" } };
 
     return(
-        <>
-        <form className="login-form-wrapper validate-form">
+        <form className="login-form-wrapper">
             
             <FormInputItem inputText="Введите свой логин"
                            inputType="text"
@@ -23,24 +21,17 @@ const LoginForm = ({ Authenticate }) => {
                            inputName="pass"
                            spanText="Пароль"/>
             
-            <div>
-                <a href="#">
+            <div className="pas-restore-box">
+                <a href="/">
                     Забыли пароль?
                 </a>
             </div>
             
-            <button>
+            <button className="submit-form-button">
                 Авторизация
             </button>
-
-
 		</form>
-
-        <button onClick={() => Authenticate(history.replace(from))}>
-            ROUTE TEST
-        </button>
-        </>
     );
 }
-
+//() => Authenticate(() => history.replace(from))
 export default LoginForm;

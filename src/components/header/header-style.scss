@@ -30,14 +30,9 @@
             @include flex-constructor(row nowrap, flex-end);
             list-style: none;
             
-            .active{
-                background: rgba(0,0,0,.3);
-            }
-
-            a{
-                font-family: 'Arimo', sans-serif;
-                text-decoration: none;
+            %text-dec{
                 display: block;
+                text-decoration: none;
                 line-height: 80px;
                 padding: 0 20px;
                 font-size: 18px;
@@ -45,16 +40,23 @@
                 font-weight: bold;
                 transition: .3s linear;
                 color: #fff;
-
-                &:after{
-                    content: "";
-                    display: table;
-                    clear: both;
-                }
                 
                 &:hover{
                     background: rgba(0,0,0,.3);
                 }
+            }
+            
+            .active{
+                background: rgba(0,0,0,.3);
+            }
+
+            span{
+                @extend %text-dec;
+                @extend %cursor-pointer;
+            }
+
+            a{
+                @extend %text-dec;
             }
         }
     }

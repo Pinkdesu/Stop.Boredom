@@ -1,14 +1,12 @@
 @import '../../module';
 
-.background-wrapper{
-    @include flex-constructor(row nowrap, center, center);
-    @include block-width(100%);
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    height: 100%;
-    z-index: 2000;
-    background-color: rgba(31, 31, 31, 0.7);
+.login-wrapper{
+    @include flex-constructor(column nowrap, stretch, center);
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 30px 50px;
 
     %general-text-style{
       font-size: 14px;
@@ -70,68 +68,69 @@
       border: none !important;
     }
 
-    .login-wrapper{
-      @include flex-constructor(column nowrap, stretch, center);
-      @include block-width(500px);
-      background: #fff;
-      border-radius: 10px;
-      overflow: hidden;
-      padding: 65px 55px 54px 55px;
+    .close-icon-bar{
+      position: absolute;
+      top: 10px;
+      right: 10px;
 
-      .login-nav{
-        display: grid;
+      & > svg{
+        @extend %cursor-pointer;
+      }
+    }
+
+    .login-nav{
+      @include block-width(100%);
+      @include flex-constructor(column nowrap, center, center);
+
+      .logo-bar{
+        @include flex-constructor(row nowrap, center, center);
+        color: #fff;
+        padding: 20px;
+        background-color: rgba(31, 31, 31, 0.8);
+      }
+
+      .ul-bar{
         @include block-width();
-        grid-template-rows: 0.5fr 1.5fr 1fr;
-        grid-template-columns: 0.5fr 1fr 1.5fr 1.5fr 1fr 0.5ff;
-        grid-template-areas:  ". . . . . close-icon"
-                              ". . logo logo . ."
-                              ". ul ul ul ul .";
-
-        .logo-bar{
-          grid-area: logo;
-        }
+        @include flex-constructor(row nowrap, space-between, stretch);
+        margin: 30px 0;
+        list-style: none;
         
-        .close-icon-bar{
-          grid-area: close-icon;
-        }
+        & > li {
+          @include block-width(50%);
 
-        .ul-bar{
-          @include flex-constructor(row nowrap, center, stretch);
-          grid-area: ul;
-          list-style: none;
-          
-          a{
+          & > a{
+            @include flex-constructor(row nowrap, center, center);
             text-decoration: none;
             display: block;
             font-size: 18px;
             letter-spacing: 2px;
             transition: .3s linear;
             color: #000;
-         }
-
-          .active{
-              background: rgba(0,0,0,.3);
           }
         }
+
+        .active{
+            background: rgba(0,0,0,.3);
+        }
       }
+    }
+    
+    .social-icon-bar{
+      @include flex-constructor(row nowrap, center, center);
       
-      .social-icon-bar{
+      .login100-social-item {
         @include flex-constructor(row nowrap, center, center);
-        
-        .login100-social-item {
-          @include flex-constructor(row nowrap, center, center);
-          font-size: 25px;
-          color: #fff;
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-          margin: 5px;
-      
-          &:hover{
-              color: #fff;
-              background-color: #333333;
-          }
-      }
+        font-size: 25px;
+        color: #fff;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin: 5px;
+    
+        &:hover{
+            color: #fff;
+            background-color: #333333;
+        }
     }
   }
 }

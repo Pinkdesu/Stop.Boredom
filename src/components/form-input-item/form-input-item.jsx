@@ -12,7 +12,7 @@ const FormInputItem = ({ inputType, inputName, spanText, inputText}) => {
         <div className="input-box-wrapper validate-input" data-validate = "Username is reauired">
             <span className="label-input100">{spanText}</span>
             <input className="input100" type={inputType} name={inputName} placeholder={inputText} onChange={(e) => handleTextChange(e)} value={text}/>
-            <span className="focus-input100" data-symbol="&#xf206;"></span>
+            <span className="focus-input100"></span>
         </div>
     );
 }

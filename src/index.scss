@@ -1,3 +1,5 @@
+@import './module';
+
 *{
   margin: 0;
   padding: 0;
@@ -9,10 +11,23 @@
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
       sans-serif;
     background: rgba(31, 31, 31, 0.2);
+
+    .background-wrapper{
+      @include flex-constructor(row nowrap, center, center);
+      @include block-width(100%);
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      height: 100%;
+      z-index: 2000;
+      background-color: rgba(31, 31, 31, 0.7);
+    }
+  }
+
+  .is-modal{
+    overflow-x: hidden;
+    overflow-y: hidden;
   }
   
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-  }
 }
 

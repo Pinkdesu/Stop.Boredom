@@ -11,12 +11,13 @@ import './main-style.scss';
 const Main = ({ allFilters, activeFilters, addAllFilters }) => {
 
     const [isDeployedAnswerWindow, SetDeployedAnswerWindow] = useState(false);
+
     useEffect(() => {
         if(allFilters.length === 0)
             axios.get("https://jsonstorage.net/api/items/2ee5fb72-8f5c-4a4c-9829-edf03a4e2333")
                 .then(response => addAllFilters(response.data))
                 .catch();
-    }, []);
+    }, [ addAllFilters, allFilters ]);
 
     const getAnswer = () => {
         SetDeployedAnswerWindow(!isDeployedAnswerWindow);

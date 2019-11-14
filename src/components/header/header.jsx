@@ -1,4 +1,4 @@
-import React, { Component, Fragment }  from 'react';
+import React, { Component }  from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarker, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
@@ -14,8 +14,12 @@ class Header extends Component {
             isDeployed: true,
             isHover: false
         }
-      }
+    }
     
+    componentDidMount() {
+        window.addEventListener('scroll', this.listenScrollEvent)
+    }
+
     listenScrollEvent = e => {
         if (window.scrollY > 40) {
             this.setState({
@@ -35,15 +39,12 @@ class Header extends Component {
             isHover: !isHover
         }));
     }
-    
-    componentDidMount() {
-        window.addEventListener('scroll', this.listenScrollEvent)
-    }
 
     render() {
         const { visibility, isDeployed, isHover } = this.state;
+        const { setActive, isAuthenticated } = this.props;
         return(
-            <Fragment>
+            <>
                 <header className="header-wrapper">
                     <nav className="navbar">
                         <Link to='/' className="logo-link">
@@ -55,7 +56,16 @@ class Header extends Component {
                             <li><NavLink to='/places'>Места</NavLink></li>
                             <li><NavLink to='/feed'>Лента</NavLink></li>
                             <li><NavLink to='/collaboration'>Сотрудничество</NavLink></li>
-                            <li><NavLink to='/user'>Войти</NavLink></li>
+                            <li>
+                                {
+                                    isAuthenticated ? 
+                                        <NavLink to='/user'>Тимур</NavLink> 
+                                        :
+                                        <span onClick={setActive}>
+                                             Войти
+                                        </span>
+                                }
+                            </li>
                         </ul>   
                     </nav>
                 </header>
@@ -71,7 +81,7 @@ class Header extends Component {
                         </div>
                     </div>
                 </Fade>
-            </Fragment>
+            </>
         );
     }
 }

@@ -11,26 +11,33 @@ import NewsFeed from './components/news-feed/news-feed';
 import ErrorPage from './components/error-page/error-page';
 import LoginPage from './components/login-page/login-page';
 import UserPage from './components/user-page/user-page';
+import Portal from './utils/portal';
 
 library.add(fab);
 
 const App = () =>  {
 
-  const [isAuthenticated, SetAuthenticated] = useState(false);
-  
-  const Authenticate = (cb) => {
-    SetAuthenticated(true);
-    setTimeout(cb, 100);
+  const [isAuthenticated, setAuthenticated] = useState(false);
+  const [isModalActive, changeModal] = useState(false);
+
+  const setActive = () => {
+    changeModal(!isModalActive);
   }
 
-  const SignOut = (cb) => {
-    SetAuthenticated(false);
-    setTimeout(cb, 100);
+  const authenticate = (cb) => {
+    cb();
+    setAuthenticated(true);
+  }
+
+  const signOut = (cb) => {
+    cb();
+    setAuthenticated(false);
   }
 
   return (
       <>
-        <Header />
+        <Header setActive={setActive} 
+                isAuthenticated={isAuthenticated}/>
 
         <Switch>
             <Route exact path='/'>
@@ -51,13 +58,14 @@ const App = () =>  {
               <NewsFeed/>
             </Route>
 
-            <Route path='/login'>
-              <LoginPage Authenticate={(cb) => Authenticate(cb)}/>
-            </Route>
-
             <Route
               render={({ location }) =>
-                isAuthenticated ? (<UserPage SignOut={ cb => SignOut(cb) }/>) : 
+                isAuthenticated ? (
+                  <>
+                    <UserPage signOut={ cb => signOut(cb)}/>
+                    <Footer/>
+                  </>
+                  ) : 
                   (<Redirect
                     to={{
                       pathname: "/login",
@@ -71,6 +79,13 @@ const App = () =>  {
               <ErrorPage/>
             </Route>
         </Switch>
+
+        {isModalActive && 
+          <Portal>
+            <LoginPage setActive={setActive}
+                       authenticate={cb => authenticate(cb)}/>
+          </Portal>
+        }
       </>
   );
 }

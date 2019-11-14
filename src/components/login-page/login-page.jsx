@@ -1,58 +1,62 @@
 import React from 'react';
+import { useClickOutside } from 'react-click-outside-hook';
 import { NavLink } from 'react-router-dom';
 import LoginForm from '../login-form/login-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookSquare,  faGoogle, faTwitter, faVk} from '@fortawesome/free-brands-svg-icons'
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faFacebookSquare,  faGoogle, faTwitter, faVk } from '@fortawesome/free-brands-svg-icons'
 import './login-page-style.scss';
 
 
-const LoginPage = ({ Authenticate }) => {
-
+const LoginPage = ({ setActive, authenticate}) => { 
+    const [ref, hasClickedOutside] = useClickOutside();
+    console.log(hasClickedOutside);
     return(
-        <div className="background-wrapper">
+        <div ref={ref} className="login-wrapper">
+            <div className="close-icon-bar">
+                <FontAwesomeIcon icon={faTimes} onClick={setActive}/>
+            </div>
 
-            <div className="login-wrapper">
-                <nav className="login-nav">
-                    <div className="close-icon-bar">
-                        X
-                    </div>
-
-                    <div className="logo-bar">
-                        Icon
-                    </div>
-
-                    <ul className="ul-bar">
-                        <li>
-                            Login
-                        </li>
-                        <li>
-                           Register
-                        </li>
-                    </ul>
-                </nav>
-                
-                <LoginForm Authenticate={Authenticate}/>
-
-                <div className="txt1 text-center p-t-54 p-b-20">
-                    <span>
-                        Or Sign Up Using
-                    </span>
+            <nav className="login-nav">
+                <div className="logo-bar">
+                    Стоп Скука
                 </div>
 
-                <div className="social-icon-bar">
-                    <a href="#" className="login100-social-item">
-                        <FontAwesomeIcon icon={faFacebookSquare} color="#00F"/>
-                    </a>
+                <ul className="ul-bar">
+                    <li>
+                        <NavLink exact to='/login'>Авторизация</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/login'>Регистрация</NavLink>
+                    </li>
+                </ul>
+            </nav>
+            
+            <LoginForm authenticate={authenticate}/>
 
-                    <a href="#" className="login100-social-item">
-                        <FontAwesomeIcon icon={faTwitter} color="#00B"/>
-                    </a>
+            <div>
+                <span>
+                    Or Sign Up Using
+                </span>
+            </div>
 
-                    <a href="#" className="login100-social-item">
-                        <FontAwesomeIcon icon={faGoogle} color="#F0F"/>
-                    </a>
-                </div>
-			</div>
+            <div className="social-icon-bar">
+                <a href="/" className="login100-social-item">
+                    <FontAwesomeIcon icon={faFacebookSquare}/>
+                </a>
+
+                <a href="/" className="login100-social-item">
+                    <FontAwesomeIcon icon={faTwitter}/>
+                </a>
+
+                <a href="/" className="login100-social-item">
+                    <FontAwesomeIcon icon={faGoogle}/>
+                </a>
+
+                <a href="/" className="login100-social-item">
+                    <FontAwesomeIcon icon={faVk}/>
+                </a>
+            </div>
         </div>
     );
 }

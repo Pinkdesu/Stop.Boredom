@@ -1,1 +1,31 @@
+@import '../../module';
 
+.login-form-wrapper{
+
+
+    %general-text-style{
+        font-size: 14px;
+        line-height: 1.7;
+        color: #666666;
+    }
+
+    .pas-restore-box{
+        & a {
+            @extend %general-text-style;
+            text-decoration: none;
+            transition: all 0.4s;
+      
+            &:focus {
+              outline: none !important;
+            }
+      
+            &:hover {
+              color: #a64bf4;
+            }
+        }
+    }
+
+    .submit-form-button{
+
+    }
+}
