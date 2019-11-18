@@ -2,11 +2,15 @@
 
 .login-form-wrapper{
 
-
     %general-text-style{
         font-size: 14px;
         line-height: 1.7;
         color: #666666;
+    }
+
+    &:focus, &:active{
+      border: 0;
+      outline: none !important;
     }
 
     .pas-restore-box{

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { loginRequest } from './actions/actionCreator';
+import { Switch, Route, Redirect, useLocation, useHistory} from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons';
-
+import queryString from 'query-string';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Main from './components/main/main';
@@ -12,32 +14,20 @@ import ErrorPage from './components/error-page/error-page';
 import LoginPage from './components/login-page/login-page';
 import UserPage from './components/user-page/user-page';
 import Portal from './utils/portal';
+import PlacesPage from './components/places-page/places-page';
 
 library.add(fab);
 
-const App = () =>  {
+const App = ({login, loginRequest }) =>  {
 
-  const [isAuthenticated, setAuthenticated] = useState(false);
-  const [isModalActive, changeModal] = useState(false);
-
-  const setActive = () => {
-    changeModal(!isModalActive);
-  }
-
-  const authenticate = (cb) => {
-    cb();
-    setAuthenticated(true);
-  }
-
-  const signOut = (cb) => {
-    cb();
-    setAuthenticated(false);
-  }
-
+  let location = useLocation();
+  let history = useHistory();
+  let path = queryString.parse(location.search);
+  console.log(history);;
+  console.log(location);
   return (
       <>
-        <Header setActive={setActive} 
-                isAuthenticated={isAuthenticated}/>
+        <Header/>
 
         <Switch>
             <Route exact path='/'>
@@ -46,6 +36,13 @@ const App = () =>  {
                 <Footer/>
               </>
             </Route> 
+
+            <Route path='/places'>
+              <>
+                <PlacesPage/>
+                <Footer/>
+              </>
+            </Route>
 
             <Route path='/collaboration'>
               <>
@@ -58,17 +55,18 @@ const App = () =>  {
               <NewsFeed/>
             </Route>
 
-            <Route
+            <Route path='/user'
               render={({ location }) =>
-                isAuthenticated ? (
+                login.isAuth ? (
                   <>
-                    <UserPage signOut={ cb => signOut(cb)}/>
+                    <UserPage />
                     <Footer/>
                   </>
                   ) : 
                   (<Redirect
                     to={{
-                      pathname: "/login",
+                      pathname: '/',
+                      search: '?login=true',
                       state: { from: location }
                     }}
                   />)
@@ -80,14 +78,17 @@ const App = () =>  {
             </Route>
         </Switch>
 
-        {isModalActive && 
+        {path.login && 
           <Portal>
-            <LoginPage setActive={setActive}
-                       authenticate={cb => authenticate(cb)}/>
+            <LoginPage/>
           </Portal>
         }
       </>
   );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  login: state.login
+});
+
+export default connect(mapStateToProps)(App);

@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import { allFilters, activeFilters} from './filters';
-const rootReducer = combineReducers({ allFilters, activeFilters });
+import { login } from './authorization';
+const rootReducer = combineReducers({ allFilters, activeFilters, login });
 
 export default rootReducer;

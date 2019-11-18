@@ -1,4 +1,5 @@
-import React from 'react';
+import React , { useEffect } from 'react';
+import { useHistory,  useLocation} from 'react-router-dom';
 import { useClickOutside } from 'react-click-outside-hook';
 import { NavLink } from 'react-router-dom';
 import LoginForm from '../login-form/login-form';
@@ -7,14 +8,27 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookSquare,  faGoogle, faTwitter, faVk } from '@fortawesome/free-brands-svg-icons'
 import './login-page-style.scss';
 
-
 const LoginPage = ({ setActive, authenticate}) => { 
-    const [ref, hasClickedOutside] = useClickOutside();
-    console.log(hasClickedOutside);
+    const [modal, hasClickedOutside] = useClickOutside();
+    const history = useHistory();
+
+    const goBack = () => {
+        history.goBack();
+    }
+
+    useEffect(() => {
+        modal.current.addEventListener('keydown', function (e) {
+            if(e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) goBack();
+        }); 
+    }, [goBack, modal]);
+
+    if(hasClickedOutside)
+        goBack();
+    
     return(
-        <div ref={ref} className="login-wrapper">
+        <div ref={modal} className="login-wrapper" tabIndex="-1">
             <div className="close-icon-bar">
-                <FontAwesomeIcon icon={faTimes} onClick={setActive}/>
+                <FontAwesomeIcon icon={faTimes} onClick={goBack}/>
             </div>
 
             <nav className="login-nav">

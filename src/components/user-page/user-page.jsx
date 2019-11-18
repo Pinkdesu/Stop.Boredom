@@ -1,14 +1,17 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
+import { loginRequest } from '../../actions/actionCreator';
+import { connect } from 'react-redux';
 
-const UserPage = ({ signOut }) => {
-    let history = useHistory();
-    
+const UserPage = ({ loginRequest, login }) => {
     return (
         <div style={{marginTop: "400px"}}>
-            <button onClick={() => signOut(() => history.push("/"))}>Sign out</button>
+            <button onClick={() => loginRequest('', false)}>Sign out</button>
         </div>
     );
 }
 
-export default UserPage;
+const mapStateToProps = state => ({
+    login: state.login
+});
+
+export default connect(mapStateToProps, { loginRequest })(UserPage);

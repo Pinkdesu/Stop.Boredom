@@ -21,3 +21,8 @@ export const removeActiveFilters = idList => ({
     idList
 });
 
+export const loginRequest = (tokenID, isAuth) => ({
+    type: types.LOGIN_REQUEST,
+    tokenID,
+    isAuth
+});

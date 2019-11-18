@@ -18,6 +18,11 @@
       outline: none !important;
       border: none !important;
     }
+    
+    &:focus, &:active{
+      border: 0;
+      outline: none !important;
+    }
 
     & a {
       @extend %general-text-style;

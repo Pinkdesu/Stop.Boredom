@@ -44,6 +44,11 @@
                 &:hover{
                     background: rgba(0,0,0,.3);
                 }
+
+                &:focus {
+                    border: 0;
+                    outline: none !important;
+                }
             }
             
             .active{

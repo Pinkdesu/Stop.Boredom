@@ -1,4 +1,5 @@
 import React, { Component }  from 'react';
+import { connect } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarker, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
@@ -42,7 +43,8 @@ class Header extends Component {
 
     render() {
         const { visibility, isDeployed, isHover } = this.state;
-        const { setActive, isAuthenticated } = this.props;
+        const { login } = this.props;
+        
         return(
             <>
                 <header className="header-wrapper">
@@ -58,12 +60,10 @@ class Header extends Component {
                             <li><NavLink to='/collaboration'>Сотрудничество</NavLink></li>
                             <li>
                                 {
-                                    isAuthenticated ? 
+                                    login.isAuth ? 
                                         <NavLink to='/user'>Тимур</NavLink> 
                                         :
-                                        <span onClick={setActive}>
-                                             Войти
-                                        </span>
+                                        <Link to='?login=true'>Войти</Link>
                                 }
                             </li>
                         </ul>   
@@ -85,4 +85,9 @@ class Header extends Component {
         );
     }
 }
-export default Header;
+
+const mapStateToProps = state => ({
+    login: state.login
+});
+
+export default connect(mapStateToProps)(Header);
