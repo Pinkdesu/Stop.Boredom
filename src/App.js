@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { loginRequest } from './actions/actionCreator';
-import { Switch, Route, Redirect, useLocation, useHistory} from 'react-router-dom';
+import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import queryString from 'query-string';
@@ -15,16 +15,15 @@ import LoginPage from './components/login-page/login-page';
 import UserPage from './components/user-page/user-page';
 import Portal from './utils/portal';
 import PlacesPage from './components/places-page/places-page';
+import { isClassPrivateMethod } from '@babel/types';
 
 library.add(fab);
 
 const App = ({login, loginRequest }) =>  {
 
   let location = useLocation();
-  let history = useHistory();
   let path = queryString.parse(location.search);
-  console.log(history);;
-  console.log(location);
+
   return (
       <>
         <Header/>
@@ -80,7 +79,15 @@ const App = ({login, loginRequest }) =>  {
 
         {path.login && 
           <Portal>
-            <LoginPage/>
+            <LoginPage isLoginFormActive={path.login}
+                       isRegFormActive={!path.login}/>
+          </Portal>
+        }
+
+        {path.registration && 
+          <Portal>
+            <LoginPage isLoginFormActive={!path.registration}
+                       isRegFormActive={path.registration}/>
           </Portal>
         }
       </>

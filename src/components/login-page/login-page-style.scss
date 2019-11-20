@@ -24,27 +24,6 @@
       outline: none !important;
     }
 
-    & a {
-      @extend %general-text-style;
-      transition: all 0.4s;
-      -webkit-transition: all 0.4s;
-      -o-transition: all 0.4s;
-      -moz-transition: all 0.4s;
-
-      &:focus {
-        outline: none !important;
-      }
-
-      &:hover {
-        text-decoration: none;
-        color: #a64bf4;
-      }
-    }
-
-    & p {
-      @extend %general-text-style;
-    }
-
     & input, textarea {
       @extend %general-input-style;
 
@@ -61,16 +40,6 @@
         &::-moz-placeholder { color:transparent; }
         &:-ms-input-placeholder { color:transparent; }
       }
-    }
-
-    & button {
-      @extend %general-input-style;
-      @extend %cursor-pointer;
-      background: transparent;
-    }
-
-    & iframe {
-      border: none !important;
     }
 
     .close-icon-bar{
@@ -101,21 +70,44 @@
         list-style: none;
         
         & > li {
-          @include block-width(50%);
+          @include flex-constructor(row nowrap, center, stretch);
+          margin: 0 10px;
 
           & > a{
-            @include flex-constructor(row nowrap, center, center);
+            @include block-width(140px);
+            text-align: center;
             text-decoration: none;
-            display: block;
+            text-transform: uppercase;
+            white-space: nowrap;
             font-size: 18px;
-            letter-spacing: 2px;
-            transition: .3s linear;
             color: #000;
           }
-        }
 
-        .active{
-            background: rgba(0,0,0,.3);
+          .nav-link-active{
+            @keyframes active {
+              from {
+                  left: 50%;
+                  width: 0;
+              }
+  
+              to { 
+                  left: 0;
+                  width: 100%;
+              }
+            }
+
+            &:after{
+              content: '';
+              transition: all 0.3s ease-in;
+              position: relative;
+              display: block;
+              height: 2px;
+              margin-top: 6px;
+              font-weight: 600;
+              background-color: rgba(31, 31, 31, 1);
+              animation: active 0.3s ease-in;
+            }
+          }
         }
       }
     }
