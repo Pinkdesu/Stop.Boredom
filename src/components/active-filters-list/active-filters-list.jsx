@@ -2,7 +2,7 @@ import React from "react";
 import ActiveFilterLiElement from "../active-filter-li-element/active-filter-li-element";
 import "./active-filters-list-style.scss";
 
-export default ({ activeFilters }) => {
+const ActiveFiltersList = ({ activeFilters }) => {
   const isDeployed = activeFilters.length !== 0;
 
   return (
@@ -20,3 +20,4 @@ export default ({ activeFilters }) => {
     </div>
   );
 };
+export default ActiveFiltersList;

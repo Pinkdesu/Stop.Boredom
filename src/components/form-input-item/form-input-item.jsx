@@ -1,39 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
+import { FORM_TEXT } from "../../constants";
 import "./form-input-item-style.scss";
-
-const TEXT = [
-  {
-    value: "text",
-    type: "text",
-    inputName: "username",
-    inputText: "Введите свой логин",
-    spanText: "Логин"
-  },
-
-  {
-    value: "password",
-    type: "password",
-    inputName: "pas",
-    inputText: "Введите свой пароль",
-    spanText: "Пароль"
-  },
-
-  {
-    value: "sec-password",
-    type: "password",
-    inputName: "second-pass",
-    inputText: "Повторный пароль",
-    spanText: "Введите пароль ещё раз"
-  },
-
-  {
-    value: "e-mail",
-    type: "e-mail",
-    inputName: "email",
-    inputText: "Введите свой e-mail",
-    spanText: "E-mail"
-  }
-];
 
 const FormInputItem = ({ inputType, isFocused }) => {
   const [text, setText] = useState("");
@@ -47,7 +14,7 @@ const FormInputItem = ({ inputType, isFocused }) => {
     setText(value);
   };
 
-  const { type, spanText, inputText, inputName } = TEXT.find(
+  const { type, spanText, inputText, inputName } = FORM_TEXT.find(
     obj => obj.value === inputType
   );
 

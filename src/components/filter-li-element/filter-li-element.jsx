@@ -1,27 +1,22 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addActiveFilter,
   removeActiveFilter
 } from "../../actions/actionCreator";
 import "./filter-li-element-style.scss";
 
-const FilterLiElement = ({
-  id,
-  text,
-  addActiveFilter,
-  removeActiveFilter,
-  activeFilters,
-  setActiveFiltersCount
-}) => {
+const FilterLiElement = ({ id, text, setActiveFiltersCount }) => {
+  const dispatch = useDispatch();
+  const activeFilters = useSelector(state => state.activeFilters);
   const checked = activeFilters.map(filter => filter.id).includes(id);
 
   const onToggle = () => {
     if (!checked) {
-      addActiveFilter(id, text);
+      dispatch(addActiveFilter(id, text));
       setActiveFiltersCount(+1);
     } else {
-      removeActiveFilter(id);
+      dispatch(removeActiveFilter(id));
       setActiveFiltersCount(-1);
     }
   };
@@ -33,7 +28,7 @@ const FilterLiElement = ({
           id={id}
           value={id}
           checked={checked}
-          onChange={() => onToggle()}
+          onChange={onToggle}
           type="checkbox"
         />
         <label htmlFor={id}>{text}</label>
@@ -42,11 +37,4 @@ const FilterLiElement = ({
   );
 };
 
-const mapStateToProps = state => ({
-  activeFilters: state.activeFilters
-});
-
-export default connect(mapStateToProps, {
-  addActiveFilter,
-  removeActiveFilter
-})(FilterLiElement);
+export default FilterLiElement;

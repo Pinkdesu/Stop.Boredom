@@ -1,17 +1,20 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { loginRequest } from "../../actions/actionCreator";
-import { connect } from "react-redux";
 
-const UserPage = ({ loginRequest, login }) => {
+const UserPage = () => {
+  const dispatch = useDispatch();
+  const login = useSelector(state => state.login);
+
+  const handleClick = () => {
+    dispatch(loginRequest("", false));
+  };
+
   return (
     <div style={{ marginTop: "400px" }}>
-      <button onClick={() => loginRequest("", false)}>Sign out</button>
+      <button onClick={handleClick}>Sign out</button>
     </div>
   );
 };
 
-const mapStateToProps = state => ({
-  login: state.login
-});
-
-export default connect(mapStateToProps, { loginRequest })(UserPage);
+export default UserPage;

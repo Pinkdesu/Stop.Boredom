@@ -1,27 +1,28 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { removeActiveFilter } from "../../actions/actionCreator";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./active-filter-li-element-style.scss";
 import Zoom from "react-reveal/Zoom";
 
-const ActiveFilterLiElement = ({ id, text, removeActiveFilter }) => {
+const ActiveFilterLiElement = ({ id, text }) => {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(removeActiveFilter(id));
+  };
+
   return (
     <Zoom duration={300}>
       <li>
         <div className="active-filter-box-wrap">
           <span>{text}</span>
-          <FontAwesomeIcon
-            icon={faTimes}
-            onClick={() => removeActiveFilter(id)}
-          />
+          <FontAwesomeIcon icon={faTimes} onClick={handleClick} />
         </div>
       </li>
     </Zoom>
   );
 };
 
-export default connect(() => ({}), { removeActiveFilter })(
-  ActiveFilterLiElement
-);
+export default ActiveFilterLiElement;

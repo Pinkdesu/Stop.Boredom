@@ -4,7 +4,7 @@ import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import FiltersList from "../filters-list/filters-list";
 import "./filter-item-style.scss";
 
-export default ({ sectionID, sectionText, filters }) => {
+const FilterItem = ({ sectionID, sectionText, filters }) => {
   const [isDeployed, handleClick] = useState(false);
   return (
     <div className="filter-item-bar">
@@ -26,3 +26,5 @@ export default ({ sectionID, sectionText, filters }) => {
     </div>
   );
 };
+
+export default FilterItem;
