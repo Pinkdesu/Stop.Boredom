@@ -23,7 +23,7 @@ const Main = () => {
         )
         .then(response => dispatch(addAllFilters(response.data)))
         .catch();
-  }, [dispatch, addAllFilters, allFilters]);
+  }, [dispatch, allFilters]);
 
   const getAnswer = () => {
     SetDeployedAnswerWindow(!isDeployedAnswerWindow);
@@ -51,7 +51,7 @@ const Main = () => {
 
         <div className="main-content">
           <div className="circle-box">
-            <button onClick={() => getAnswer()}>Circle</button>
+            <button onClick={getAnswer}>Circle</button>
           </div>
 
           <AnswerPopup isDeployedAnswerWindow={isDeployedAnswerWindow} />

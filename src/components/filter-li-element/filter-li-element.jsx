@@ -11,7 +11,7 @@ const FilterLiElement = ({ id, text, setActiveFiltersCount }) => {
   const activeFilters = useSelector(state => state.activeFilters);
   const checked = activeFilters.map(filter => filter.id).includes(id);
 
-  const onToggle = () => {
+  const handleInputChange = () => {
     if (!checked) {
       dispatch(addActiveFilter(id, text));
       setActiveFiltersCount(+1);
@@ -28,7 +28,7 @@ const FilterLiElement = ({ id, text, setActiveFiltersCount }) => {
           id={id}
           value={id}
           checked={checked}
-          onChange={onToggle}
+          onChange={handleInputChange}
           type="checkbox"
         />
         <label htmlFor={id}>{text}</label>

@@ -9,19 +9,29 @@
     align-items: $alItems;
     align-content: $alContent;
 }
-@mixin block-width($width: inherit, $min-width: 0, $max-width: none){
+
+@mixin block-width($width: inherit, $min-width: 0, $max-width: none) {
     width: $width;
     min-width: $min-width;
     max-width: $max-width;
 }
 
-%cursor-pointer{
+@mixin block-style() {
+    border-radius: 4px;
+    box-shadow: 0 1px 0 0 #d7d8db,
+        0 0 0 1px #e3e4e8;
+    background-color: #fff;
+}
+
+%cursor-pointer {
     cursor: default;
-    &:hover{
-      cursor: pointer;
+
+    &:hover {
+        cursor: pointer;
     }
 }
-.collapsed{
+
+.collapsed {
     height: 0;
     visibility: hidden;
 }

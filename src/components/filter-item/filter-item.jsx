@@ -5,13 +5,14 @@ import FiltersList from "../filters-list/filters-list";
 import "./filter-item-style.scss";
 
 const FilterItem = ({ sectionID, sectionText, filters }) => {
-  const [isDeployed, handleClick] = useState(false);
+  const [isDeployed, setDeployed] = useState(false);
+  const handleClick = () => {
+    setDeployed(!isDeployed);
+  };
+
   return (
     <div className="filter-item-bar">
-      <button
-        className="cursor-pointer"
-        onClick={() => handleClick(!isDeployed)}
-      >
+      <button className="cursor-pointer" onClick={handleClick}>
         <FontAwesomeIcon
           icon={isDeployed ? faAngleUp : faAngleDown}
           className="filter-item-icon"
