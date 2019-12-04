@@ -2,40 +2,40 @@
 
 .carousel-container {
     @include block-width(100%, 100%);
-    border: 1px solid red;
-    position: relative;
+    @include flex-constructor(column nowrap, center, center);
+    padding: 20px 0;
     overflow: hidden;
 
-    .carousel-items {
+    .carousel-panel {
         @include block-width();
-        height: 100px;
-        position: relative;
+        @include flex-constructor(row nowrap, space-between);
 
+        .carousel-items {
+            position: relative;
+            width: 80%;
+        }
 
-        .carousel-arrow {
-            text-shadow: 1px 1px 1px #fff;
+        .carousel-arrow-container {
+            @include flex-constructor(row nowrap, center, center);
+            width: 10%;
+            background-color: #fff;
+            height: 100%;
             z-index: 100;
-            line-height: 50px;
-            text-align: center;
-            position: absolute;
-            top: 0;
-            font-size: 3em;
-            cursor: pointer;
-            user-select: none;
-        }
 
-        .arrow-right {
-            right: 0;
-        }
+            .carousel-arrow {
+                text-shadow: 1px 1px 1px #fff;
+                line-height: 50px;
+                text-align: center;
+                top: 0;
+                font-size: 3em;
+                cursor: pointer;
+                user-select: none;
+            }
 
-
-        .arrow-left {
-            left: 0;
         }
     }
 
     .carousel-dots {
-        z-index: 100;
         @include flex-constructor(row nowrap, center, center);
 
         .carousel-dot {

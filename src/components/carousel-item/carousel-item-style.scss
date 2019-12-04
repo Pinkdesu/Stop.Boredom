@@ -1,0 +1,5 @@
+@import '../../module';
+
+.carousel-item {
+    @include flex-constructor(row nowrap, space-between, center);
+}

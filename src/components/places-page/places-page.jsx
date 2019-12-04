@@ -2,29 +2,18 @@ import React from "react";
 import "./places-page-style.scss";
 import Carousel from "../carousel/carousel";
 import Slide from "react-reveal/Slide";
+import CarouselItem from "../carousel-item/carousel-item";
 
 const PlacesPage = () => {
   return (
     <main className="places-wrapper">
       <div className="places-content-wrapper">
-        <Carousel>
+        <Carousel defaultWait={4000}>
           <Slide right>
-            <div>
-              <h1>Slide 1</h1>
-              <p>Slide Description</p>
-            </div>
+            <CarouselItem />
           </Slide>
           <Slide right>
-            <div>
-              <h1>Slide 2</h1>
-              <p>Slide Description</p>
-            </div>
-          </Slide>
-          <Slide right>
-            <div>
-              <h1>Slide 3</h1>
-              <p>Slide Description</p>
-            </div>
+            <CarouselItem />
           </Slide>
         </Carousel>
       </div>
