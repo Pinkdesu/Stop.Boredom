@@ -1,133 +1,157 @@
 @import '../../module';
 
-.login-wrapper{
-    @include flex-constructor(column nowrap, stretch, center);
-    position: relative;
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 30px 50px;
+.login-wrapper {
+  @include flex-constructor(column nowrap, stretch, center);
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 30px 50px;
 
-    %general-text-style{
-      font-size: 14px;
-      line-height: 1.7;
-      color: #666666;
+  %general-text-style {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666666;
+  }
+
+  %general-input-style {
+    outline: none !important;
+    border: none !important;
+  }
+
+  &:focus,
+  &:active {
+    border: 0;
+    outline: none !important;
+  }
+
+  & input,
+  textarea {
+    @extend %general-input-style;
+
+    &::-webkit-input-placeholder {
+      color: #adadad;
     }
 
-    %general-input-style{
-      outline: none !important;
-      border: none !important;
-    }
-    
-    &:focus, &:active{
-      border: 0;
-      outline: none !important;
+    &:-moz-placeholder {
+      color: #adadad;
     }
 
-    & input, textarea {
-      @extend %general-input-style;
-
-      &::-webkit-input-placeholder { color: #adadad;}
-      &:-moz-placeholder { color: #adadad;}
-      &::-moz-placeholder { color: #adadad;}
-      &:-ms-input-placeholder { color: #adadad;}
-
-      &:focus {
-        border-color: transparent !important;
-
-        &-webkit-input-placeholder { color:transparent; }
-        &:-moz-placeholder { color:transparent; }
-        &::-moz-placeholder { color:transparent; }
-        &:-ms-input-placeholder { color:transparent; }
-      }
+    &::-moz-placeholder {
+      color: #adadad;
     }
 
-    .close-icon-bar{
-      position: absolute;
-      top: 10px;
-      right: 10px;
-
-      & > svg{
-        @extend %cursor-pointer;
-      }
+    &:-ms-input-placeholder {
+      color: #adadad;
     }
 
-    .login-nav{
-      @include block-width(100%);
-      @include flex-constructor(column nowrap, center, center);
+    &:focus {
+      border-color: transparent !important;
 
-      .logo-bar{
-        @include flex-constructor(row nowrap, center, center);
-        color: #fff;
-        padding: 20px;
-        background-color: rgba(31, 31, 31, 0.8);
+      &-webkit-input-placeholder {
+        color: transparent;
       }
 
-      .ul-bar{
-        @include block-width();
-        @include flex-constructor(row nowrap, space-between, stretch);
-        margin: 30px 0;
-        list-style: none;
-        
-        & > li {
-          @include flex-constructor(row nowrap, center, stretch);
-          margin: 0 10px;
+      &:-moz-placeholder {
+        color: transparent;
+      }
 
-          & > a{
-            @include block-width(140px);
-            text-align: center;
-            text-decoration: none;
-            text-transform: uppercase;
-            white-space: nowrap;
-            font-size: 18px;
-            color: #000;
-          }
+      &::-moz-placeholder {
+        color: transparent;
+      }
 
-          .nav-link-active{
-            @keyframes active {
-              from {
-                  left: 50%;
-                  width: 0;
-              }
-  
-              to { 
-                  left: 0;
-                  width: 100%;
-              }
-            }
-
-            &:after{
-              content: '';
-              transition: all 0.3s ease-in;
-              position: relative;
-              display: block;
-              height: 2px;
-              margin-top: 6px;
-              font-weight: 600;
-              background-color: rgba(31, 31, 31, 1);
-              animation: active 0.3s ease-in;
-            }
-          }
-        }
+      &:-ms-input-placeholder {
+        color: transparent;
       }
     }
-    
-    .social-icon-bar{
+  }
+
+  .close-icon-bar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    &>svg {
+      @include cursor-pointer();
+    }
+  }
+
+  .login-nav {
+    @include block-width(100%);
+    @include flex-constructor(column nowrap, center, center);
+
+    .logo-bar {
       @include flex-constructor(row nowrap, center, center);
-      
-      .login100-social-item {
-        @include flex-constructor(row nowrap, center, center);
-        font-size: 25px;
-        color: #fff;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        margin: 5px;
-    
-        &:hover{
-            color: #fff;
-            background-color: #333333;
+      color: #fff;
+      padding: 20px;
+      background-color: rgba(31, 31, 31, 0.8);
+    }
+
+    .ul-bar {
+      @include block-width();
+      @include flex-constructor(row nowrap, space-between, stretch);
+      margin: 30px 0;
+      list-style: none;
+
+      &>li {
+        @include flex-constructor(row nowrap, center, stretch);
+        margin: 0 10px;
+
+        &>a {
+          @include block-width(140px);
+          text-align: center;
+          text-decoration: none;
+          text-transform: uppercase;
+          white-space: nowrap;
+          font-size: 18px;
+          color: #000;
         }
+
+        .nav-link-active {
+          @keyframes active {
+            from {
+              left: 50%;
+              width: 0;
+            }
+
+            to {
+              left: 0;
+              width: 100%;
+            }
+          }
+
+          &:after {
+            content: '';
+            transition: all 0.3s ease-in;
+            position: relative;
+            display: block;
+            height: 2px;
+            margin-top: 6px;
+            font-weight: 600;
+            background-color: rgba(31, 31, 31, 1);
+            animation: active 0.3s ease-in;
+          }
+        }
+      }
+    }
+  }
+
+  .social-icon-bar {
+    @include flex-constructor(row nowrap, center, center);
+
+    .login100-social-item {
+      @include flex-constructor(row nowrap, center, center);
+      font-size: 25px;
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin: 5px;
+
+      &:hover {
+        color: #fff;
+        background-color: #333333;
+      }
     }
   }
 }

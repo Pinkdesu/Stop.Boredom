@@ -5,9 +5,16 @@
     @include block-width(100%);
     margin-top: 130px;
 
-    .places-content-wrapper {
+    .places-carousel-wrapper {
         @include flex-constructor(row nowrap, center);
         @include block-width(1100px, 1100px);
         @include block-style;
+        margin-bottom: 20px;
+    }
+
+    .places-content-wrapper {
+        @include block-width(1100px, 1100px);
+        @include block-style;
+        height: 1000px;
     }
 }

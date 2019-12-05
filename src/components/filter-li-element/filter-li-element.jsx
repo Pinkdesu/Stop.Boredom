@@ -23,7 +23,7 @@ const FilterLiElement = ({ id, text, setActiveFiltersCount }) => {
 
   return (
     <li>
-      <div className="filter-box-wrap">
+      <div className="filter-box-wrapper">
         <input
           id={id}
           value={id}

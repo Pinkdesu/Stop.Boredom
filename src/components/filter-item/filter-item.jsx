@@ -12,11 +12,8 @@ const FilterItem = ({ sectionID, sectionText, filters }) => {
 
   return (
     <div className="filter-item-bar">
-      <button className="cursor-pointer" onClick={handleClick}>
-        <FontAwesomeIcon
-          icon={isDeployed ? faAngleUp : faAngleDown}
-          className="filter-item-icon"
-        />
+      <button onClick={handleClick}>
+        <FontAwesomeIcon icon={isDeployed ? faAngleUp : faAngleDown} />
         <span>{sectionText}</span>
       </button>
       <FiltersList

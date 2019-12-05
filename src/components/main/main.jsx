@@ -6,6 +6,7 @@ import FilterItem from "../filter-item/filter-item";
 import QuickFilter from "../quick-filter/quick-filter";
 import ActiveFiltersList from "../active-filters-list/active-filters-list";
 import AnswerPopup from "../answer-popup/answer-popup";
+import Pulse from "react-reveal/Pulse";
 import "./main-style.scss";
 
 const Main = () => {
@@ -51,7 +52,9 @@ const Main = () => {
 
         <div className="main-content">
           <div className="circle-box">
-            <button onClick={getAnswer}>Circle</button>
+            <Pulse forever={true}>
+              <span onClick={getAnswer}>CLICK</span>
+            </Pulse>
           </div>
 
           <AnswerPopup isDeployedAnswerWindow={isDeployedAnswerWindow} />

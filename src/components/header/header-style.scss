@@ -1,6 +1,6 @@
 @import '../../module';
 
-.header-wrapper{
+.header-wrapper {
     @include flex-constructor(row nowrap, center);
     @include block-width(100%);
     position: fixed;
@@ -9,18 +9,18 @@
     top: 0;
     left: 0;
 
-    .navbar{
+    .navbar {
         @include flex-constructor(row nowrap, space-between);
         @include block-width(1100px, 1100px);
 
-        .logo-link{
+        .logo-link {
             border: solid 5px #ff4435;
             margin: 10px 0 10px 0;
             padding: 5px;
             height: 60px;
             text-align: center;
 
-            img{
+            img {
                 width: 100px;
                 height: 40px;
             }
@@ -29,8 +29,8 @@
         .menu-main {
             @include flex-constructor(row nowrap, flex-end);
             list-style: none;
-            
-            %text-dec{
+
+            %text-dec {
                 display: block;
                 text-decoration: none;
                 line-height: 80px;
@@ -40,9 +40,9 @@
                 font-weight: bold;
                 transition: .3s linear;
                 color: #fff;
-                
-                &:hover{
-                    background: rgba(0,0,0,.3);
+
+                &:hover {
+                    background: rgba(0, 0, 0, .3);
                 }
 
                 &:focus {
@@ -50,23 +50,24 @@
                     outline: none !important;
                 }
             }
-            
-            .active{
-                background: rgba(0,0,0,.3);
+
+            .active {
+                background: rgba(0, 0, 0, .3);
             }
 
-            span{
+            span {
                 @extend %text-dec;
-                @extend %cursor-pointer;
+                @include cursor-pointer();
             }
 
-            a{
+            a {
                 @extend %text-dec;
             }
         }
     }
-} 
-.geo-bar{
+}
+
+.geo-bar {
     @include flex-constructor(row nowrap, center, center);
     @include block-width(100%);
     position: fixed;
@@ -77,20 +78,20 @@
     background: rgba(31, 31, 31, 0.75);
     padding: 5px 0;
 
-    .city-select{
+    .city-select {
         @include flex-constructor(row nowrap, flex-start, center);
         @include block-width(1100px, 1100px);
         color: #fff;
-        font-family: Arial,Helvetica,sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
 
-        .location-icon{
+        .location-icon {
             margin-right: 5px;
             font-size: 16px;
         }
 
-        .city-name{
+        .city-name {
             font-size: 14px;
-            @extend %cursor-pointer;
+            @include cursor-pointer();
         }
     }
 }

@@ -1,4 +1,4 @@
-@import '../../module';
+@import "../../module";
 
 .main-wrapper {
     @include flex-constructor(column nowrap, flex-start, center);
@@ -21,6 +21,13 @@
                 @include block-width();
                 @include flex-constructor(column nowrap, center, center);
                 height: 500px;
+
+                &>span {
+                    @include cursor-pointer();
+                    font-size: 2em;
+                    font-weight: bold;
+                    user-select: none;
+                }
             }
         }
 

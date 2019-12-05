@@ -1,6 +1,6 @@
 @import '../../module';
 
-.filter-item-bar{
+.filter-item-bar {
     @include flex-constructor(column nowrap, stretch);
     @include block-width(100%);
     font-size: 16px;
@@ -13,19 +13,24 @@
     position: relative;
     z-index: 903;
 
-    & > button{
+    &>button {
         @include flex-constructor(row nowrap, flex-start, center);
         @include block-width();
         padding: 20px;
-        color: #666;
+        color: rgba(#000, 0.7);
         border: none;
         outline: none;
         position: relative;
         z-index: 905;
         background-color: #fff;
 
-            .filter-item-icon{
-                margin-right: 20px;
-            }
+        &>svg {
+            margin-right: 20px;
+        }
+
+        &:hover {
+            @include cursor-pointer();
+            color: rgba(0, 0, 0, 1);
+        }
     }
 }

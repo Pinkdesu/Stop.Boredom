@@ -1,14 +1,13 @@
 @import '../../module';
 
-.filter-box-wrap{
+.filter-box-wrapper {
     @include flex-constructor(row nowrap, flex-start, center);
     @include block-width(100%);
     position: relative;
-    z-index: 904;
     border-radius: 5px;
 
-    & > input[type="checkbox"]{
-        @include block-width(inherit);
+    &>input[type="checkbox"] {
+        @include block-width();
         position: absolute;
         left: 0;
         -webkit-appearance: none;
@@ -16,14 +15,15 @@
         appearance: none;
         opacity: 0;
         z-index: -1;
-         
-        &:checked + label{
+
+        &:checked+label {
             background-color: lightblue;
         }
     }
 
-    & > label{
-        @include block-width(inherit);
+    &>label {
+        @include block-width();
+        @include cursor-pointer();
         background-color: #fff;
         padding: 15px;
         font-size: 14px;

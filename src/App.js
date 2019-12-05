@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginRequest } from "./actions/actionCreator";
 import { Switch, Route, Redirect, useLocation } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -19,7 +19,8 @@ import PlacesPage from "./components/places-page/places-page";
 
 library.add(fab, fas);
 
-const App = ({ login, loginRequest }) => {
+const App = () => {
+  const login = useSelector(state => state.login);
   let location = useLocation();
   let path = queryString.parse(location.search);
 
@@ -99,8 +100,4 @@ const App = ({ login, loginRequest }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  login: state.login
-});
-
-export default connect(mapStateToProps)(App);
+export default App;

@@ -1,6 +1,6 @@
 @import '../../module';
 
-.active-filter-box-wrap{
+.active-filter-box-wrap {
     @include flex-constructor(row nowrap, flex-start, center);
     @include block-width(100%);
     position: relative;
@@ -9,7 +9,7 @@
     background-color: #fff;
     padding: 15px;
 
-    & > span{
+    &>span {
         @include block-width();
         font-size: 14px;
         text-align: left;
@@ -20,12 +20,7 @@
         line-height: 1.12;
     }
 
-    .fa-times{
-        @extend %cursor-pointer;
-        color: rgba(0, 0, 0, 0.3);
-        
-        &:hover{
-            color: rgba(0, 0, 0, 1);
-        }
+    &>svg {
+        @include arrow();
     }
 }

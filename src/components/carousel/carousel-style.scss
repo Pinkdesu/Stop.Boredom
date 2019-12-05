@@ -3,12 +3,14 @@
 .carousel-container {
     @include block-width(100%, 100%);
     @include flex-constructor(column nowrap, center, center);
-    padding: 20px 0;
+    padding: 20px 0 10px 0;
     overflow: hidden;
 
     .carousel-panel {
         @include block-width();
         @include flex-constructor(row nowrap, space-between);
+        margin-bottom: 20px;
+        height: 65px;
 
         .carousel-items {
             position: relative;
@@ -19,16 +21,13 @@
             @include flex-constructor(row nowrap, center, center);
             width: 10%;
             background-color: #fff;
-            height: 100%;
             z-index: 100;
 
             .carousel-arrow {
-                text-shadow: 1px 1px 1px #fff;
+                @include cursor-pointer();
+                @include arrow();
                 line-height: 50px;
-                text-align: center;
-                top: 0;
                 font-size: 3em;
-                cursor: pointer;
                 user-select: none;
             }
 
@@ -39,7 +38,8 @@
         @include flex-constructor(row nowrap, center, center);
 
         .carousel-dot {
-            font-size: 1.5em;
+            padding: 2px;
+            font-size: 1em;
             cursor: pointer;
             text-shadow: 1px 1px 1px #fff;
             user-select: none;
