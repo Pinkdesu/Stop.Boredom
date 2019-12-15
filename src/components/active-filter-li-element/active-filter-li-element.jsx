@@ -25,4 +25,4 @@ const ActiveFilterLiElement = ({ id, text }) => {
   );
 };
 
-export default ActiveFilterLiElement;
+export default React.memo(ActiveFilterLiElement);

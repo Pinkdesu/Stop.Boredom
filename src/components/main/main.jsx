@@ -1,20 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addAllFilters } from "../../actions/actionCreator";
 import axios from "axios";
 import FilterItem from "../filter-item/filter-item";
 import QuickFilter from "../quick-filter/quick-filter";
 import ActiveFiltersList from "../active-filters-list/active-filters-list";
-import AnswerPopup from "../answer-popup/answer-popup";
-import Pulse from "react-reveal/Pulse";
 import "./main-style.scss";
+import GeneratorWindow from "../generator-window/generator-window";
 
 const Main = () => {
   const dispatch = useDispatch();
   const allFilters = useSelector(state => state.allFilters);
-  const activeFilters = useSelector(state => state.activeFilters);
-
-  const [isDeployedAnswerWindow, SetDeployedAnswerWindow] = useState(false);
 
   useEffect(() => {
     if (allFilters.length === 0)
@@ -25,10 +21,6 @@ const Main = () => {
         .then(response => dispatch(addAllFilters(response.data)))
         .catch();
   }, [dispatch, allFilters]);
-
-  const getAnswer = () => {
-    SetDeployedAnswerWindow(!isDeployedAnswerWindow);
-  };
 
   return (
     <main className="main-wrapper">
@@ -47,18 +39,10 @@ const Main = () => {
             />
           ))}
 
-          <ActiveFiltersList activeFilters={activeFilters} />
+          <ActiveFiltersList />
         </div>
 
-        <div className="main-content">
-          <div className="circle-box">
-            <Pulse forever={true}>
-              <span onClick={getAnswer}>CLICK</span>
-            </Pulse>
-          </div>
-
-          <AnswerPopup isDeployedAnswerWindow={isDeployedAnswerWindow} />
-        </div>
+        <GeneratorWindow />
       </div>
     </main>
   );

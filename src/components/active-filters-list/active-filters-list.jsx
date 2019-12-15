@@ -1,8 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import ActiveFilterLiElement from "../active-filter-li-element/active-filter-li-element";
 import "./active-filters-list-style.scss";
 
-const ActiveFiltersList = ({ activeFilters }) => {
+const ActiveFiltersList = () => {
+  const activeFilters = useSelector(state => state.activeFilters);
   const isDeployed = activeFilters.length !== 0;
 
   return (

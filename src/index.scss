@@ -1,6 +1,6 @@
 @import './module';
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,7 +12,7 @@
       sans-serif;
     background: rgba(31, 31, 31, 0.2);
 
-    .background-wrapper{
+    .background-wrapper {
       @include flex-constructor(row nowrap, center, center);
       @include block-width(100%);
       position: fixed;
@@ -24,10 +24,8 @@
     }
   }
 
-  .is-modal{
+  .is-modal {
     overflow-x: hidden;
     overflow-y: hidden;
   }
-  
 }
-

@@ -2,9 +2,9 @@ import { Component } from "react";
 import ReactDOM from "react-dom";
 
 class Portal extends Component {
-  el = document.createElement("div");
-
-  componentWillMount() {
+  constructor() {
+    super();
+    this.el = document.createElement("div");
     this.scrollYBefore = window.scrollY;
     this.scrollXBefore = window.scrollX;
   }

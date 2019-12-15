@@ -3,6 +3,7 @@ import Carousel from "../carousel/carousel";
 import Slide from "react-reveal/Slide";
 import CarouselItem from "../carousel-item/carousel-item";
 import "./places-page-style.scss";
+import PlacesList from "../places-list/places-list";
 
 const PlacesPage = () => {
   return (
@@ -18,7 +19,9 @@ const PlacesPage = () => {
         </Carousel>
       </div>
 
-      <div className="places-content-wrapper"></div>
+      <div className="places-content-wrapper">
+        <PlacesList />
+      </div>
     </main>
   );
 };

@@ -37,4 +37,4 @@ const FilterLiElement = ({ id, text, setActiveFiltersCount }) => {
   );
 };
 
-export default FilterLiElement;
+export default React.memo(FilterLiElement);

@@ -79,20 +79,11 @@ const App = () => {
         </Route>
       </Switch>
 
-      {path.login && (
+      {(path.login || path.registration) && (
         <Portal>
           <LoginPage
-            isLoginFormActive={path.login}
-            isRegFormActive={!path.login}
-          />
-        </Portal>
-      )}
-
-      {path.registration && (
-        <Portal>
-          <LoginPage
-            isLoginFormActive={!path.registration}
-            isRegFormActive={path.registration}
+            isLoginFormActive={path.login && !path.registration}
+            isRegFormActive={!path.login && path.registration}
           />
         </Portal>
       )}

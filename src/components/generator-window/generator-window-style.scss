@@ -1,0 +1,23 @@
+@import '../../module';
+
+.main-content {
+    @include block-style;
+    @include block-width(800px);
+    @include flex-constructor(column nowrap, stretch, center);
+    position: relative;
+    margin-left: 20px;
+    padding: 20px 0;
+
+    .circle-box {
+        @include block-width();
+        @include flex-constructor(column nowrap, center, center);
+        height: 500px;
+
+        &>span {
+            @include cursor-pointer();
+            font-size: 2em;
+            font-weight: bold;
+            user-select: none;
+        }
+    }
+}
