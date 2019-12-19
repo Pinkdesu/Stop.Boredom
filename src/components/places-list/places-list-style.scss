@@ -1,0 +1,21 @@
+@import '../../module';
+
+.places-list-wrapper {
+    @include flex-constructor(column nowrap, center, center);
+    @include block-width(100%);
+
+    %global-styles {
+        @include block-width();
+    }
+
+    .places-list-footer {
+        @include flex-constructor(row nowrap, flex-start, center);
+        @extend %global-styles;
+        width: 100%;
+
+        &>button {
+            padding: 5px 10px;
+
+        }
+    }
+}
