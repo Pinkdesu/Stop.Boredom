@@ -16,6 +16,7 @@ import LoginPage from "./components/login-page/login-page";
 import UserPage from "./components/user-page/user-page";
 import Portal from "./utils/portal";
 import PlacesPage from "./components/places-page/places-page";
+import PlacePage from "./components/place-page/place-page";
 
 library.add(fab, fas);
 
@@ -39,6 +40,13 @@ const App = () => {
         <Route path="/places">
           <>
             <PlacesPage />
+            <Footer />
+          </>
+        </Route>
+
+        <Route path="/place">
+          <>
+            <PlacePage />
             <Footer />
           </>
         </Route>

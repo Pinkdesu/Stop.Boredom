@@ -1,4 +1,4 @@
-@import '../../module';
+@import "../../module";
 
 .places-list-wrapper {
     @include flex-constructor(column nowrap, center, center);
@@ -8,14 +8,30 @@
         @include block-width();
     }
 
+    .places-list-main {
+        @extend %global-styles;
+        display: grid;
+        grid-template-columns: repeat(5, 1.5fr);
+        grid-auto-rows: 1fr;
+        grid-gap: 20px;
+        padding: 20px 0;
+    }
+
     .places-list-footer {
         @include flex-constructor(row nowrap, flex-start, center);
         @extend %global-styles;
-        width: 100%;
 
-        &>button {
+        &>span {
+            @include cursor-pointer();
             padding: 5px 10px;
 
+            &:hover .places-list-footer-text {
+                border-bottom: 1px #000 dashed;
+            }
+
+            .places-list-footer-text {
+                margin-left: 15px;
+            }
         }
     }
 }

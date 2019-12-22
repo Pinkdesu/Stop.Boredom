@@ -1,0 +1,14 @@
+@import "../../module";
+
+.place-page-wrapper {
+    @include flex-constructor(column nowrap, flex-start, center);
+    @include block-width(100%);
+    margin-top: 130px;
+
+    .place-content-wrapper {
+        @include block-width(1100px, 1100px);
+        @include block-style;
+        height: 1000px;
+        padding: 20px;
+    }
+}
