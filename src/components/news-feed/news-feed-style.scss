@@ -1,0 +1,5 @@
+@import "../../module";
+
+.news-feed-wrapper {
+    @include main-box-style();
+}

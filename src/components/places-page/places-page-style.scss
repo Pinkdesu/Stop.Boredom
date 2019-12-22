@@ -1,9 +1,7 @@
 @import '../../module';
 
 .places-wrapper {
-    @include flex-constructor(column nowrap, flex-start, center);
-    @include block-width(100%);
-    margin-top: 130px;
+    @include main-box-style();
 
     .places-carousel-wrapper {
         @include flex-constructor(row nowrap, center);
@@ -15,7 +13,6 @@
     .places-content-wrapper {
         @include block-width(1100px, 1100px);
         @include block-style;
-        height: 1000px;
         padding: 20px;
     }
 }

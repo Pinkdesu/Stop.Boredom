@@ -6,9 +6,9 @@ const PlacePage = () => {
   const params = useParams();
 
   return (
-    <div className="place-page-wrapper">
+    <main className="place-page-wrapper">
       <div className="place-content-wrapper"></div>
-    </div>
+    </main>
   );
 };
 export default PlacePage;

@@ -1,9 +1,7 @@
 @import "../../module";
 
 .main-wrapper {
-    @include flex-constructor(column nowrap, flex-start, center);
-    @include block-width(100%);
-    margin-top: 130px;
+    @include main-box-style();
 
     .main-bar-wrapper {
         @include flex-constructor(row nowrap, center, flex-start);

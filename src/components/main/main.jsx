@@ -5,8 +5,8 @@ import axios from "axios";
 import FilterItem from "../filter-item/filter-item";
 import QuickFilter from "../quick-filter/quick-filter";
 import ActiveFiltersList from "../active-filters-list/active-filters-list";
-import "./main-style.scss";
 import GeneratorWindow from "../generator-window/generator-window";
+import "./main-style.scss";
 
 const Main = () => {
   const dispatch = useDispatch();
