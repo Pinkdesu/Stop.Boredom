@@ -44,7 +44,7 @@ const App = () => {
           </>
         </Route>
 
-        <Route path="/place">
+        <Route path="/place/:id">
           <>
             <PlacePage />
             <Footer />
@@ -52,10 +52,7 @@ const App = () => {
         </Route>
 
         <Route path="/collaboration">
-          <>
-            <CollaborationPage />
-            <Footer />
-          </>
+          <CollaborationPage />
         </Route>
 
         <Route path="/feed">

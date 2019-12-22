@@ -6,18 +6,16 @@ import {
 } from "../../actions/actionCreator";
 import "./filter-li-element-style.scss";
 
-const FilterLiElement = ({ id, text, setActiveFiltersCount }) => {
+const FilterLiElement = ({ id, sectionID, value }) => {
   const dispatch = useDispatch();
   const activeFilters = useSelector(state => state.activeFilters);
   const checked = activeFilters.map(filter => filter.id).includes(id);
 
   const handleInputChange = () => {
     if (!checked) {
-      dispatch(addActiveFilter(id, text));
-      setActiveFiltersCount(+1);
+      dispatch(addActiveFilter(id, sectionID, value));
     } else {
-      dispatch(removeActiveFilter(id));
-      setActiveFiltersCount(-1);
+      dispatch(removeActiveFilter(id, sectionID));
     }
   };
 
@@ -25,13 +23,13 @@ const FilterLiElement = ({ id, text, setActiveFiltersCount }) => {
     <li>
       <div className="filter-box-wrapper">
         <input
-          id={id}
+          id={`${sectionID}-${id}`}
           value={id}
           checked={checked}
           onChange={handleInputChange}
           type="checkbox"
         />
-        <label htmlFor={id}>{text}</label>
+        <label htmlFor={`${sectionID}-${id}`}>{value}</label>
       </div>
     </li>
   );

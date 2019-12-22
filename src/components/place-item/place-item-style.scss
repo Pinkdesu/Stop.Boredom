@@ -3,7 +3,7 @@
 .place-item-wrapper {
     height: 220px;
 
-    &>a {
+    .place-item-link {
         @include flex-constructor(column nowrap, flex-start);
         color: rgba(0, 0, 0, 1);
         background-color: #edeef0;

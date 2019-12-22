@@ -4,7 +4,7 @@ import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import FiltersList from "../filters-list/filters-list";
 import "./filter-item-style.scss";
 
-const FilterItem = ({ sectionID, sectionText, filters }) => {
+const FilterItem = ({ id, name, values }) => {
   const [isDeployed, setDeployed] = useState(false);
   const handleClick = () => {
     setDeployed(!isDeployed);
@@ -14,13 +14,9 @@ const FilterItem = ({ sectionID, sectionText, filters }) => {
     <div className="filter-item-bar">
       <button onClick={handleClick}>
         <FontAwesomeIcon icon={isDeployed ? faAngleUp : faAngleDown} />
-        <span>{sectionText}</span>
+        <span>{name}</span>
       </button>
-      <FiltersList
-        sectionID={sectionID}
-        isDeployed={isDeployed}
-        filters={filters}
-      />
+      <FiltersList sectionID={id} isDeployed={isDeployed} values={values} />
     </div>
   );
 };

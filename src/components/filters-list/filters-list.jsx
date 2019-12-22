@@ -1,20 +1,18 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { removeActiveFilters } from "../../actions/actionCreator";
 import Fade from "react-reveal/Fade";
 import FilterLiElement from "../filter-li-element/filter-li-element";
 import "./filters-list-style.scss";
 
-const FiltersList = ({ sectionID, isDeployed, filters }) => {
+const FiltersList = ({ sectionID, isDeployed, values }) => {
   const dispatch = useDispatch();
-  const [count, SetCount] = useState(0);
-
-  const setActiveFiltersCount = value => {
-    SetCount(count + value);
-  };
+  const activeFilters = useSelector(state => state.activeFilters).filter(
+    filter => filter.sectionID === sectionID
+  );
 
   const handleClick = () => {
-    dispatch(removeActiveFilters(filters.map(filter => filter.id)));
+    dispatch(removeActiveFilters(sectionID));
   };
 
   return (
@@ -26,15 +24,15 @@ const FiltersList = ({ sectionID, isDeployed, filters }) => {
       <Fade when={isDeployed} delay={100} duration={300}>
         <div className="filters-list-header">
           <button onClick={handleClick}>Очистить</button>
-          <span>Выбрано: {count}</span>
+          <span>Выбрано: {activeFilters.length}</span>
         </div>
         <ul id={sectionID} className="ul-list">
-          {filters.map(({ id, text }) => (
+          {values.map(({ id, value }) => (
             <FilterLiElement
               key={id}
+              sectionID={sectionID}
               id={id}
-              text={text}
-              setActiveFiltersCount={value => setActiveFiltersCount(value)}
+              value={value}
             />
           ))}
         </ul>

@@ -15,8 +15,13 @@ const ActiveFiltersList = () => {
     >
       <span>Активные фильтры</span>
       <ul>
-        {activeFilters.map(({ id, text }) => (
-          <ActiveFilterLiElement key={id} id={id} text={text} />
+        {activeFilters.map(({ id, sectionID, text }) => (
+          <ActiveFilterLiElement
+            key={id}
+            id={id}
+            sectionID={sectionID}
+            text={text}
+          />
         ))}
       </ul>
     </div>

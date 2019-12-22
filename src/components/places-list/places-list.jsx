@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Placeitem from "../place-item/place-item";
 import "./places-list-style.scss";
 
-const PlacesList = () => {
+const PlacesList = ({ id, name, description, rating }) => {
   const [isDeployed, setDeployed] = useState(false);
 
   const handleButtonClick = () => {
@@ -13,16 +13,10 @@ const PlacesList = () => {
 
   return (
     <div className="places-list-wrapper">
-      <h1>Кафе</h1>
+      <h1>{description}</h1>
 
       <div className="places-list-main">
-        <Placeitem />
-        <Placeitem />
-        <Placeitem />
-        <Placeitem />
-        <Placeitem />
-        <Placeitem />
-        <Placeitem />
+        <Placeitem id={id} name={name} rating={rating} />
       </div>
 
       <div className="places-list-footer">

@@ -3,9 +3,14 @@ import "./collaboration-page-style.scss";
 
 const CollaborationPage = () => {
   return (
-    <main className="main-wrapper">
-      <h1>CollaborationPage</h1>
-    </main>
+    <div className="collaboration-page-wrapper">
+      <iframe
+        frameborder="0"
+        seamless
+        title="collaboration"
+        src="./tilda/Шаблон онлайн-сервиса.html"
+      />
+    </div>
   );
 };
 export default CollaborationPage;

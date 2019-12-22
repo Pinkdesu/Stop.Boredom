@@ -15,12 +15,10 @@ const Main = () => {
   useEffect(() => {
     if (allFilters.length === 0)
       axios
-        .get(
-          "https://jsonstorage.net/api/items/2ee5fb72-8f5c-4a4c-9829-edf03a4e2333"
-        )
+        .get("http://project/public/getFilters")
         .then(response => dispatch(addAllFilters(response.data)))
         .catch();
-  }, [dispatch, allFilters]);
+  }, [dispatch, allFilters.length]);
 
   return (
     <main className="main-wrapper">
@@ -30,13 +28,8 @@ const Main = () => {
 
       <div className="main-bar-wrapper">
         <div className="filter-bar">
-          {allFilters.map(({ sectionID, sectionText, filters }) => (
-            <FilterItem
-              key={sectionID}
-              sectionID={sectionID}
-              sectionText={sectionText}
-              filters={filters}
-            />
+          {allFilters.map(({ id, name, values }) => (
+            <FilterItem key={id} id={id} name={name} values={values} />
           ))}
 
           <ActiveFiltersList />
