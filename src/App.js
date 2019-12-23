@@ -1,6 +1,6 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { loginRequest } from "./actions/actionCreator";
+import { useSelector } from "react-redux";
+//import { loginRequest } from "./actions/actionCreator";
 import { Switch, Route, Redirect, useLocation } from "react-router-dom";
 import queryString from "query-string";
 import Header from "./components/header/header";
@@ -32,14 +32,14 @@ const App = () => {
           </>
         </Route>
 
-        <Route path="/places">
+        <Route exact path="/places">
           <>
             <PlacesPage />
             <Footer />
           </>
         </Route>
 
-        <Route path="/place/:categoryID/:id">
+        <Route path="/place/:id">
           <>
             <PlacePage />
             <Footer />

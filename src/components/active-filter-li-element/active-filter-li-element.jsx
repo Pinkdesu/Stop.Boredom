@@ -6,11 +6,11 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./active-filter-li-element-style.scss";
 import Zoom from "react-reveal/Zoom";
 
-const ActiveFilterLiElement = ({ id, sectionID, text }) => {
+const ActiveFilterLiElement = ({ id, text }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(removeActiveFilter(id, sectionID));
+    dispatch(removeActiveFilter(id));
   };
 
   return (

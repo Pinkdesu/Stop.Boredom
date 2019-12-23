@@ -12,10 +12,9 @@ export const addActiveFilter = (id, sectionID, text) => ({
   text
 });
 
-export const removeActiveFilter = (id, sectionID) => ({
+export const removeActiveFilter = id => ({
   type: types.REMOVE_ACTIVE_FILTER,
-  id,
-  sectionID
+  id
 });
 
 export const removeActiveFilters = sectionID => ({

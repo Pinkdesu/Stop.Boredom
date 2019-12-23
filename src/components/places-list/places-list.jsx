@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Placeitem from "../place-item/place-item";
 import "./places-list-style.scss";
 
-const PlacesList = ({ categoryID, name, values }) => {
+const PlacesList = ({ name, values }) => {
   const [isDeployed, setDeployed] = useState(false);
 
   const handleButtonClick = () => {
@@ -20,7 +20,6 @@ const PlacesList = ({ categoryID, name, values }) => {
           <Placeitem
             key={id}
             id={id}
-            categoryID={categoryID}
             name={name}
             image={image}
             rating={rating}

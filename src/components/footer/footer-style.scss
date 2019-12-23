@@ -13,7 +13,7 @@
 
         .footer-item {
             @include flex-constructor(column nowrap, center);
-            width: 200px;
+            width: 250px;
             color: #fff;
 
             &>h4 {

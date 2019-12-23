@@ -10,7 +10,7 @@
         @include block-width();
         @include flex-constructor(row nowrap, space-between);
         margin-bottom: 20px;
-        height: 65px;
+        height: 80px;
 
         .carousel-items {
             position: relative;

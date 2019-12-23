@@ -24,10 +24,7 @@ export const activeFilters = (state = ACTIVE_FILTERS, action) => {
         }
       ];
     case types.REMOVE_ACTIVE_FILTER:
-      return [...state].filter(
-        filter =>
-          filter.id !== action.id && filter.sectionID === action.sectionID
-      );
+      return [...state].filter(filter => filter.id !== action.id);
     case types.REMOVE_ACTIVE_FILTERS:
       return [...state].filter(filter => filter.sectionID !== action.sectionID);
     default:

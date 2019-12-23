@@ -15,7 +15,7 @@ const FilterLiElement = ({ id, sectionID, value }) => {
     if (!checked) {
       dispatch(addActiveFilter(id, sectionID, value));
     } else {
-      dispatch(removeActiveFilter(id, sectionID));
+      dispatch(removeActiveFilter(id));
     }
   };
 

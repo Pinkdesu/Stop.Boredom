@@ -1,9 +1,10 @@
 @import '../../module';
 
-.answer-popup-li-box-wrap {
+.answer-popup-li-link {
     @include flex-constructor(row nowrap, flex-start, center);
     @include block-width(100%);
     position: relative;
+    text-decoration: none;
     border-radius: 5px;
 
     &>span {

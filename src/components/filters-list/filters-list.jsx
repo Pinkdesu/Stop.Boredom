@@ -7,6 +7,7 @@ import "./filters-list-style.scss";
 
 const FiltersList = ({ sectionID, isDeployed, values }) => {
   const dispatch = useDispatch();
+
   const activeFilters = useSelector(state => state.activeFilters).filter(
     filter => filter.sectionID === sectionID
   );

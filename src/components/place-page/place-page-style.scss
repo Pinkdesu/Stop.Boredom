@@ -7,5 +7,28 @@
         @include block-width(1100px, 1100px);
         @include block-style;
         padding: 20px;
+
+        .place-content-description {
+            @include flex-constructor(row nowrap, flex-start);
+            @include block-width();
+            padding: 20px 0;
+
+            .place-content-image {
+                @include flex-constructor(column nowrap);
+                margin-right: 50px;
+
+                &>figure {
+                    &>img {
+                        @include block-width(450px, 450px);
+                        height: 320px;
+                        min-height: 320px;
+                    }
+                }
+
+                &>figcaption {
+                    font-size: 18px;
+                }
+            }
+        }
     }
 }

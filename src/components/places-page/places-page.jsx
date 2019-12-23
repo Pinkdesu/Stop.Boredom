@@ -34,6 +34,7 @@ const PlacesPage = () => {
       if (i !== arrCount) result.push(allCategories.slice((i - 1) * 4, 4 * i));
       else result.push(allCategories.slice((i - 1) * 4));
     }
+
     return result;
   })();
 
@@ -50,17 +51,9 @@ const PlacesPage = () => {
       </div>
 
       <div className="places-content-wrapper">
-        {allPlaces.map(
-          ({ id, name, values }) =>
-            values.length !== 0 && (
-              <PlacesList
-                key={id}
-                categoryID={id}
-                name={name}
-                values={values}
-              />
-            )
-        )}
+        {allPlaces.map(({ id, name, values }) => (
+          <PlacesList key={id} name={name} values={values} />
+        ))}
       </div>
     </main>
   );
