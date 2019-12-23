@@ -38,12 +38,12 @@
     }
 }
 
-@mixin arrow() {
+@mixin active-text() {
     @include cursor-pointer();
-    color: rgba(0, 0, 0, 0.7);
+    color: rgba(#1f1f1f, 0.7);
 
     &:hover {
-        color: rgba(0, 0, 0, 1);
+        color: rgba(#1f1f1f, 1);
     }
 }
 
