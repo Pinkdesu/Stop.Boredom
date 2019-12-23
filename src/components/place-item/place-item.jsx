@@ -2,16 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./place-item-style.scss";
 
-const Placeitem = ({ id, name, rating }) => {
+const Placeitem = ({ id, categoryID, name, rating, image }) => {
   return (
     <div className="place-item-wrapper">
-      <Link to={`/place/${id}`} className="place-item-link">
+      <Link to={`/place/${categoryID}/${id}`} className="place-item-link">
         <figure>
-          <img
-            className="place-item-img"
-            src="/images/logo-min.jpg"
-            alt="logo"
-          />
+          <img className="place-item-img" src={"." + image} alt="logo" />
         </figure>
         <figcaption>
           <h3>{name}</h3>

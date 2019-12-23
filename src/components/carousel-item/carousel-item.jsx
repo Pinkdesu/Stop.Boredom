@@ -1,25 +1,16 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./carousel-item-style.scss";
 
-const CarouselItem = () => {
+const CarouselItem = ({ categories }) => {
   return (
     <div className="carousel-item">
-      <div>
-        <h1>Slide 1</h1>
-        <p>Slide Description</p>
-      </div>
-      <div>
-        <h1>Slide 2</h1>
-        <p>Slide Description</p>
-      </div>
-      <div>
-        <h1>Slide 3</h1>
-        <p>Slide Description</p>
-      </div>
-      <div>
-        <h1>Slide 4</h1>
-        <p>Slide Description</p>
-      </div>
+      {categories.map(({ id, name }) => (
+        <div key={id}>
+          <h1>{name}</h1>
+          <p>{id}</p>
+        </div>
+      ))}
     </div>
   );
 };

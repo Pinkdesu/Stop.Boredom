@@ -2,9 +2,6 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginRequest } from "./actions/actionCreator";
 import { Switch, Route, Redirect, useLocation } from "react-router-dom";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-import { fas } from "@fortawesome/free-solid-svg-icons";
 import queryString from "query-string";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
@@ -17,8 +14,6 @@ import UserPage from "./components/user-page/user-page";
 import Portal from "./utils/portal";
 import PlacesPage from "./components/places-page/places-page";
 import PlacePage from "./components/place-page/place-page";
-
-library.add(fab, fas);
 
 const App = () => {
   const login = useSelector(state => state.login);
@@ -44,7 +39,7 @@ const App = () => {
           </>
         </Route>
 
-        <Route path="/place/:id">
+        <Route path="/place/:categoryID/:id">
           <>
             <PlacePage />
             <Footer />

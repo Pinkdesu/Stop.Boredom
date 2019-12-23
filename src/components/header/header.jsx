@@ -15,15 +15,16 @@ const Header = () => {
   const login = useSelector(state => state.login);
 
   const listenScrollEvent = () => {
+    if (window.scrollY < 40) {
+      setVisibility({
+        visibility: "visible",
+        isDeployed: true
+      });
+    }
     if (window.scrollY > 40) {
       setVisibility({
         visibility: "hidden",
         isDeployed: false
-      });
-    } else {
-      setVisibility({
-        visibility: "visible",
-        isDeployed: true
       });
     }
   };

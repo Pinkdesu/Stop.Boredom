@@ -28,6 +28,11 @@ export const addAllPlaces = places => ({
   places
 });
 
+export const addAllCategories = categories => ({
+  type: types.ADD_ALL_CATEGORIES,
+  categories
+});
+
 export const loginRequest = (tokenID, isAuth) => ({
   type: types.LOGIN_REQUEST,
   tokenID,

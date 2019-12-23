@@ -5,7 +5,7 @@ const CollaborationPage = () => {
   return (
     <div className="collaboration-page-wrapper">
       <iframe
-        frameborder="0"
+        frameBorder="0"
         seamless
         title="collaboration"
         src="./tilda/Шаблон онлайн-сервиса.html"

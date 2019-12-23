@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Placeitem from "../place-item/place-item";
 import "./places-list-style.scss";
 
-const PlacesList = ({ id, name, description, rating }) => {
+const PlacesList = ({ categoryID, name, values }) => {
   const [isDeployed, setDeployed] = useState(false);
 
   const handleButtonClick = () => {
@@ -13,20 +13,31 @@ const PlacesList = ({ id, name, description, rating }) => {
 
   return (
     <div className="places-list-wrapper">
-      <h1>{description}</h1>
+      <h1>{name}</h1>
 
       <div className="places-list-main">
-        <Placeitem id={id} name={name} rating={rating} />
+        {values.map(({ id, name, rating, image }) => (
+          <Placeitem
+            key={id}
+            id={id}
+            categoryID={categoryID}
+            name={name}
+            image={image}
+            rating={rating}
+          />
+        ))}
       </div>
 
-      <div className="places-list-footer">
-        <span onClick={handleButtonClick}>
-          <FontAwesomeIcon icon={isDeployed ? faAngleUp : faAngleDown} />
-          <span className="places-list-footer-text">
-            {isDeployed ? "Свернуть" : "Развернуть"}
+      {values.length > 10 && (
+        <div className="places-list-footer">
+          <span onClick={handleButtonClick}>
+            <FontAwesomeIcon icon={isDeployed ? faAngleUp : faAngleDown} />
+            <span className="places-list-footer-text">
+              {isDeployed ? "Свернуть" : "Развернуть"}
+            </span>
           </span>
-        </span>
-      </div>
+        </div>
+      )}
     </div>
   );
 };

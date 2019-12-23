@@ -1,6 +1,30 @@
+@import '../../module';
+
 .footer-wrapper {
-    width: 100%;
-    height: 150px;
+    @include flex-constructor(row nowrap, center);
+    @include block-width(100%);
     background-color: #1f1f1f;
     margin-top: 30px;
+
+    .footer-content {
+        @include flex-constructor(row nowrap, space-between);
+        @include block-width(1100px, 1100px);
+        padding: 20px;
+
+        .footer-item {
+            @include flex-constructor(column nowrap, center, center);
+            width: 200px;
+            color: #fff;
+
+            &>h4 {}
+
+            &>ul {
+                list-style: none;
+
+                li {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
 }
