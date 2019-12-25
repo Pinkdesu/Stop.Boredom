@@ -4,7 +4,6 @@ import {
   faTape,
   faWalking
 } from "@fortawesome/free-solid-svg-icons";
-//import { faTree } from "@fortawesome/free-regular-svg-icons";
 
 export const ADD_ALL_FILTERS = "ADD_ALL_FILTERS";
 export const ADD_ACTIVE_FILTER = "ADD_ACTIVE_FILTER";

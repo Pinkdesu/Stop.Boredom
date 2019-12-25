@@ -1,12 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addAllPlaces, addAllCategories } from "../../actions/actionCreator";
 import Carousel from "../carousel/carousel";
 import Slide from "react-reveal/Slide";
 import CarouselItem from "../carousel-item/carousel-item";
-import PlacesList from "../places-list/places-list";
+//import PlacesList from "../places-list/places-list";
 import axios from "axios";
 import "./places-page-style.scss";
+import LoadingWindow from "../loading-window/loading-window";
+
+const PlacesList = React.lazy(() => import("../places-list/places-list"));
 
 const PlacesPage = () => {
   const dispatch = useDispatch();
@@ -52,7 +55,12 @@ const PlacesPage = () => {
 
       <div className="places-content-wrapper">
         {allPlaces.map(({ id, name, values }) => (
-          <PlacesList key={id} name={name} values={values} />
+          <Suspense
+            key={id}
+            fallback={<LoadingWindow heigth={values.length > 5 ? 450 : 240} />}
+          >
+            <PlacesList name={name} values={values} />
+          </Suspense>
         ))}
       </div>
     </main>
