@@ -26,11 +26,11 @@ const LoginForm = () => {
         <div className="pas-restore-box">
           <a href="/">Забыли пароль?</a>
         </div>
-      </form>
 
-      <button className="submit-form-button" onClick={queryTest}>
-        Авторизация
-      </button>
+        <button className="submit-form-button" onClick={queryTest}>
+          Авторизация
+        </button>
+      </form>
     </>
   );
 };

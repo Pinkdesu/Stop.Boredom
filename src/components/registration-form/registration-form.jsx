@@ -12,6 +12,8 @@ const RegistrationForm = () => {
       <FormInputItem inputType="password" isFocused={false} />
 
       <FormInputItem inputType="sec-password" isFocused={false} />
+
+      <button className="submit-form-button">Регистрация</button>
     </form>
   );
 };

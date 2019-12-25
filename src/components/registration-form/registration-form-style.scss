@@ -1,0 +1,43 @@
+@import '../../module';
+
+.login-form-wrapper {
+
+    @include flex-constructor(column nowrap, center, center);
+
+    %general-text-style {
+        font-size: 14px;
+        line-height: 1.7;
+        color: #1f1f1f;
+    }
+
+    &:focus,
+    &:active {
+        border: 0;
+        outline: none !important;
+    }
+
+    .submit-form-button {
+        @extend %general-text-style;
+        width: 50%;
+        padding: 10px 5px;
+        background-color: #fff;
+        border: 1px solid #1f1f1f;
+        margin: 10px 0;
+    }
+
+    .pas-restore-box {
+        & a {
+            @extend %general-text-style;
+            text-decoration: none;
+            transition: all 0.4s;
+
+            &:focus {
+                outline: none !important;
+            }
+
+            &:hover {
+                color: #a64bf4;
+            }
+        }
+    }
+}
