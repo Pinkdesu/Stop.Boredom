@@ -9,7 +9,7 @@ const PlacePage = () => {
 
   useEffect(() => {
     axios
-      .get(`http://project/public/place/${params.id}`)
+      .get(`http://194.147.34.51/project/public/place/${params.id}`)
       .then(response => setDataPlace(response.data))
       .catch();
   }, [params]);
@@ -21,7 +21,10 @@ const PlacePage = () => {
         <div className="place-content-description">
           <div className="place-content-image">
             <figure>
-              <img src={dataPlace.image} alt="img" />
+              <img
+                src={`http://194.147.34.51/project/public/${dataPlace.image}`}
+                alt="img"
+              />
             </figure>
             <figcaption>{dataPlace.contacts}</figcaption>
           </div>

@@ -54,9 +54,9 @@ const Header = () => {
             <li>
               <NavLink to="/places">Места</NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink to="/feed">Лента</NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink to="/collaboration">Сотрудничество</NavLink>
             </li>

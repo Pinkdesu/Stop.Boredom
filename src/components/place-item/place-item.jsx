@@ -7,7 +7,11 @@ const Placeitem = ({ id, name, rating, image }) => {
     <div className="place-item-wrapper">
       <Link to={`/place/${id}`} className="place-item-link">
         <figure>
-          <img className="place-item-img" src={image} alt="img" />
+          <img
+            className="place-item-img"
+            src={`http://194.147.34.51/project/public/${image}`}
+            alt="img"
+          />
         </figure>
         <figcaption>
           <h3>{name}</h3>
