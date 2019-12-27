@@ -15,7 +15,9 @@ const Main = () => {
   useEffect(() => {
     if (allFilters.length === 0)
       axios
-        .get("http://194.147.34.51/project/public/getFilters")
+        .get(
+          "https://cors-anywhere.herokuapp.com/http://194.147.34.51/project/public/getFilters"
+        )
         .then(response => dispatch(addAllFilters(response.data)))
         .catch();
   }, [dispatch, allFilters.length]);

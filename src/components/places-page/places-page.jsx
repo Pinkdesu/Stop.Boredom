@@ -19,11 +19,15 @@ const PlacesPage = () => {
   useEffect(() => {
     if (allPlaces.length === 0 && allCategories.length === 0) {
       axios
-        .get("http://194.147.34.51/project/public/places")
+        .get(
+          "https://cors-anywhere.herokuapp.com/http://194.147.34.51/project/public/places"
+        )
         .then(response => dispatch(addAllPlaces(response.data)))
         .catch();
       axios
-        .get("http://194.147.34.51/project/public/getCategories")
+        .get(
+          "https://cors-anywhere.herokuapp.com/http://194.147.34.51/project/public/getCategories"
+        )
         .then(response => dispatch(addAllCategories(response.data)))
         .catch();
     }

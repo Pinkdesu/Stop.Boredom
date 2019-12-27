@@ -13,7 +13,9 @@ const AnswerPopup = ({ isDeployedAnswerWindow }) => {
       const stringQuery = activeFilters.map(({ id }) => id).join(",");
 
       axios
-        .get(`http://project/public/getPlacesByFilters?ids=${stringQuery}`)
+        .get(
+          `https://cors-anywhere.herokuapp.com/http://194.147.34.51/project/public/getPlacesByFilters?ids=${stringQuery}`
+        )
         .then(response => setAnswer(response.data))
         .catch();
     }
@@ -32,6 +34,7 @@ const AnswerPopup = ({ isDeployedAnswerWindow }) => {
         {answer.map(({ id, description, rating }) => (
           <AnswerPopupLiElement
             key={id}
+            id={id}
             description={description}
             rating={rating}
           />

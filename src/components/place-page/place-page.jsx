@@ -9,7 +9,9 @@ const PlacePage = () => {
 
   useEffect(() => {
     axios
-      .get(`http://194.147.34.51/project/public/place/${params.id}`)
+      .get(
+        `https://cors-anywhere.herokuapp.com/http://194.147.34.51/project/public/place/${params.id}`
+      )
       .then(response => setDataPlace(response.data))
       .catch();
   }, [params]);
