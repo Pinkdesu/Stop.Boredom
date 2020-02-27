@@ -2,4 +2,8 @@
 
 .news-feed-wrapper {
     @include main-box-style();
+
+    .news-feed {
+        @include block-width(700px, 700px);
+    }
 }

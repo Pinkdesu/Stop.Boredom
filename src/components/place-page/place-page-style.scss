@@ -10,7 +10,7 @@
 
         .place-content-description {
             @include flex-constructor(row nowrap, flex-start);
-            @include block-width();
+            width: 100%;
             padding: 20px 0;
 
             .place-content-image {
@@ -28,6 +28,10 @@
                 &>figcaption {
                     font-size: 18px;
                 }
+            }
+
+            &>p {
+                word-wrap: break-word;
             }
         }
     }

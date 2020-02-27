@@ -9,7 +9,7 @@ const Placeitem = ({ id, name, rating, image }) => {
         <figure>
           <img
             className="place-item-img"
-            src={`http://194.147.34.51/project/public/${image}`}
+            src={`http://project/public/${image}`}
             alt="img"
           />
         </figure>
